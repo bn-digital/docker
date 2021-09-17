@@ -17,7 +17,7 @@
     ]
   },
   "applications": {
-    "app": {
+    "php": {
       "type": "php",
       "user": "bn",
       "group": "bn",
