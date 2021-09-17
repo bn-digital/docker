@@ -16,8 +16,8 @@ jobs:
         id: secrets
         with:
           method: github
-          url: ${{ env.VAULT_ENDPOINT }}
-          githubToken: ${{ env.GH_TOKEN }}
+          url: ${{ secrets.vault_endpoint }}
+          githubToken: ${{ secrets.gh_token }}
           secrets: |
             infrastructure/data/bndigital/staging/registry docker-url | docker_url ;
             infrastructure/data/bndigital/staging/registry docker-username | docker_username ;
