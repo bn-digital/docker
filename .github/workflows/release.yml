@@ -6,7 +6,7 @@ on:
 jobs:
   docker:
     name: Docker build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
