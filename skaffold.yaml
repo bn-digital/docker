@@ -1,5 +1,5 @@
 # nonk8s
-apiVersion: skaffold/v2beta23
+apiVersion: skaffold/v2beta22
 kind: Config
 build:
   artifacts:
