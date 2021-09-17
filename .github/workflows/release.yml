@@ -1,0 +1,38 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*.*.*"
+jobs:
+  docker:
+    name: Docker build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Import Vault secrets
+        uses: hashicorp/vault-action@v2.3.1
+        id: secrets
+        with:
+          method: github
+          url: ${{ env.VAULT_ENDPOINT }}
+          githubToken: ${{ env.GH_TOKEN }}
+          secrets: |
+            infrastructure/data/bndigital/staging/registry docker-url | docker_url ;
+            infrastructure/data/bndigital/staging/registry docker-username | docker_username ;
+            infrastructure/data/bndigital/staging/registry docker-password | docker_password ;
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ steps.secrets.outputs.docker_url }}
+          username: ${{ steps.secrets.outputs.docker_username }}
+          password: ${{ steps.secrets.outputs.docker_password }}
+
+      - name: Build Docker images
+        uses: hiberbee/github-action-skaffold@1.6.0
+        with:
+          command: build
+          profile: release
+          default-repo: ${{ steps.secrets.outputs.docker_url }}/library

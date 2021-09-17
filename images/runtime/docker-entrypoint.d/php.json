@@ -1,0 +1,40 @@
+{
+  "listeners": {
+    "*:8000": {
+      "pass": "routes/app"
+    }
+  },
+  "routes": {
+    "app": [
+      {
+        "action": {
+          "share": "/usr/local/src/",
+          "fallback": {
+            "pass": "applications/php"
+          }
+        }
+      }
+    ]
+  },
+  "applications": {
+    "app": {
+      "type": "php",
+      "user": "bn",
+      "group": "bn",
+      "root": "/usr/local/src/",
+      "script": "index.php",
+      "options": {
+        "file": "/usr/local/etc/php/conf.d/php.ini",
+        "admin": {
+          "upload_max_filesize": "20M",
+          "expose_php": "0",
+          "opcache.enable": "1",
+          "opcache.fast_shutdown": "1",
+          "opcache.memory_consumption": "256",
+          "opcache.max_accelerated_files": "10000",
+          "opcache.validate_timestamps": "1"
+        }
+      }
+    }
+  }
+}

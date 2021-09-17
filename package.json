@@ -1,0 +1,9 @@
+{
+  "name": "docker",
+  "workspaces": [
+    "images/build/app"
+  ],
+  "scripts": {
+    "build": "skaffold build"
+  }
+}

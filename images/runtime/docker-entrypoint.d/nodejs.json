@@ -1,0 +1,19 @@
+{
+  "listeners": {
+    "*:5000": {
+      "pass": "applications/nodejs"
+    }
+  },
+  "applications": {
+    "nodejs": {
+      "type": "external",
+      "working_directory": "/usr/local/src/",
+      "executable": "node_modules/strapi/bin/strapi.js",
+      "user": "bn",
+      "group": "bn",
+      "arguments": [
+        "start"
+      ]
+    }
+  }
+}
