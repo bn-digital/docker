@@ -5,9 +5,10 @@ WORKDIR /usr/local/src
 COPY app .
 RUN yarn
 
-FROM summerwind/actions-runner-dind:latest
-LABEL org.opencontainers.image.authors="BN Enginseers" \
+FROM summerwind/actions-runner-dind:v2.283.3-ubuntu-20.04
+LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
+      org.opencontainers.image.source="https://github.com/bn-digital/docker" \
       org.opencontainers.image.vendor="BN Digital" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.title="NodeJS DinD Build Pack for Github Workflows" \
@@ -47,6 +48,6 @@ RUN apt-get update --fix-missing \
       yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 VOLUME ["/usr/local/yarn"]
-COPY --from=yarn --chown=bn /usr/local/yarn /usr/local/yarn
+COPY --from=yarn --chown=runner /usr/local/yarn /usr/local/yarn
 WORKDIR /runner
 ONBUILD WORKDIR /usr/local/src

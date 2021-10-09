@@ -19,8 +19,8 @@
   "applications": {
     "php": {
       "type": "php",
-      "user": "bn",
-      "group": "bn",
+      "user": "unit",
+      "group": "unit",
       "root": "/usr/local/src/",
       "script": "index.php",
       "options": {

@@ -4,6 +4,7 @@
     "images/build/app"
   ],
   "scripts": {
-    "build": "skaffold build"
-  }
+    "build": "skaffold build --default-repo=dcr.bndigital.dev/library"
+  },
+  "packageManager": "yarn@3.0.2"
 }

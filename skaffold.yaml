@@ -5,26 +5,36 @@ build:
   artifacts:
     - image: yarn
       context: images/build
-    - image: html
-      context: images/runtime
-      docker:
-        target: html
-    - image: php
-      context: images/runtime
-      docker:
-        target: php
     - image: nodejs
       context: images/runtime
       docker:
         target: nodejs
+    - image: nginx
+      context: images/runtime
+      docker:
+        target: nodejs-nginx
+    - image: react
+      context: images/runtime
+      docker:
+        target: react
+    - image: strapi
+      context: images/runtime
+      docker:
+        target: strapi
+    - image: php
+      context: images/runtime
+      docker:
+        target: php-nginx
+    - image: openvpn
+      context: images/openvpn
   tagPolicy:
     sha256: { }
   local:
-    push: false
+    push: true
     useBuildkit: true
     concurrency: 0
 profiles:
-  - name: release
+  - name: production
     build:
       tagPolicy:
         gitCommit:

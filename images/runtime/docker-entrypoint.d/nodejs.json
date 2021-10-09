@@ -1,18 +1,35 @@
 {
   "listeners": {
     "*:5000": {
-      "pass": "applications/nodejs"
+      "pass": "routes/strapi"
     }
   },
+  "routes": {
+    "strapi": [
+      {
+        "action": {
+          "share": "/usr/local/src/",
+          "fallback": {
+            "pass": "applications/strapi"
+          }
+        }
+      }
+    ]
+  },
   "applications": {
-    "nodejs": {
+    "strapi": {
       "type": "external",
       "working_directory": "/usr/local/src/",
-      "executable": "node_modules/strapi/bin/strapi.js",
-      "user": "bn",
-      "group": "bn",
+      "executable": "/usr/bin/env",
+      "user": "unit",
+      "group": "unit",
       "arguments": [
-        "start"
+        "node",
+        "--loader",
+        "unit-http/loader.mjs",
+        "--require",
+        "unit-http/loader",
+        "node_modules/strapi/bin/strapi.js start"
       ]
     }
   }
