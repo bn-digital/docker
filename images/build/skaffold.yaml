@@ -4,11 +4,15 @@ kind: Config
 build:
   artifacts:
     - image: cms
+      context: .
       docker:
         target: cms
+        dockerfile: Dockerfile
     - image: website
+      context: .
       docker:
-        target: website
+        target: cms
+        dockerfile: Dockerfile
   tagPolicy:
     sha256: { }
   local:
