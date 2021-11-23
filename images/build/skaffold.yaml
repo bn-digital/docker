@@ -4,12 +4,10 @@ kind: Config
 build:
   artifacts:
     - image: cms
-      context: '{{ .CWD }}'
       docker:
         target: cms
         dockerfile: Dockerfile
     - image: website
-      context: '{{ .CWD }}'
       docker:
         target: cms
         dockerfile: Dockerfile
