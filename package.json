@@ -6,5 +6,5 @@
   "scripts": {
     "build": "skaffold build --default-repo=dcr.bndigital.dev/library"
   },
-  "packageManager": "yarn@3.0.2"
+  "packageManager": "yarn@3.1.0"
 }

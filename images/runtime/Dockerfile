@@ -1,9 +1,8 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.25.0
-ARG nodejs_version=16.10.0
+ARG nodejs_version=16.13.0
 ARG php_version=8.0
-FROM node:${nodejs_version}-bullseye-slim AS nodejs-base
-
+FROM node:${nodejs_version}-slim AS nodejs-base
 
 FROM nodejs-base AS nodejs-build
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"

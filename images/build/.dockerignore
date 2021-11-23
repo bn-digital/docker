@@ -1,2 +1,5 @@
-app/node_modules
-app/.yarn/install-state.gz
+/app/node_modules
+/skaffold.yaml
+/Dockerfile
+/.dockerignore
+/test

@@ -1,0 +1,36 @@
+# nonk8s
+apiVersion: skaffold/v2beta26
+kind: Config
+build:
+  artifacts:
+    - image: cms
+      docker:
+        target: cms
+    - image: website
+      docker:
+        target: website
+  tagPolicy:
+    sha256: { }
+  local:
+    push: false
+test:
+  - image: cms
+    structureTests:
+      - test/nodejs.yaml
+      - test/cms.yaml
+  - image: website
+    structureTests:
+      - test/nodejs.yaml
+      - test/website.yaml
+profiles:
+  - name: staging
+    activation:
+      - kubeContext: do-fra1-bndigital
+    build:
+      local:
+        useBuildkit: true
+        push: true
+      tagPolicy:
+        gitCommit:
+          ignoreChanges: true
+          variant: CommitSha

@@ -1,11 +1,12 @@
 # syntax docker/dockerfile:latest
-FROM node:16-bullseye-slim AS yarn
+ARG nodejs_version=16.13.0
+FROM node:${nodejs_version}-slim AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
 COPY app .
 RUN yarn
 
-FROM summerwind/actions-runner-dind:v2.283.3-ubuntu-20.04
+FROM summerwind/actions-runner-dind:v2.284.0-ubuntu-20.04
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -27,7 +28,7 @@ RUN apt-get update --fix-missing \
       gnupg \
       libssl-dev \
       wget \
- && curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
  && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \

@@ -1,5 +1,5 @@
 # nonk8s
-apiVersion: skaffold/v2beta22
+apiVersion: pipelines/v2beta24
 kind: Config
 build:
   artifacts:
@@ -9,18 +9,6 @@ build:
       context: images/runtime
       docker:
         target: nodejs
-    - image: nginx
-      context: images/runtime
-      docker:
-        target: nodejs-nginx
-    - image: react
-      context: images/runtime
-      docker:
-        target: react
-    - image: strapi
-      context: images/runtime
-      docker:
-        target: strapi
     - image: php
       context: images/runtime
       docker:
