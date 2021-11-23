@@ -54,9 +54,9 @@ WORKDIR /runner
 ONBUILD WORKDIR /usr/local/src
 
 FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS cms
-COPY packages/cms .
+COPY ./packages/cms .
 ENTRYPOINT ["yarn"]
 CMD ["strapi", "start"]
 
 FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS website
-COPY packages/website/build .
+COPY ./packages/website/build .
