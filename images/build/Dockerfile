@@ -52,3 +52,11 @@ VOLUME ["/usr/local/yarn"]
 COPY --from=yarn --chown=runner /usr/local/yarn /usr/local/yarn
 WORKDIR /runner
 ONBUILD WORKDIR /usr/local/src
+
+FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS cms
+COPY packages/cms .
+ENTRYPOINT ["yarn"]
+CMD ["strapi", "start"]
+
+FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS website
+COPY packages/website/build .
