@@ -31,7 +31,7 @@ jobs:
           password: ${{ steps.secrets.outputs.docker_password }}
 
       - name: Build Docker images
-        uses: hiberbee/github-action-pipelines@1.14.0
+        uses: hiberbee/github-action-skaffold@1.14.0
         with:
           command: build
           profile: release

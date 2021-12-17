@@ -6,7 +6,7 @@ WORKDIR /usr/local/src
 COPY app .
 RUN yarn
 
-FROM summerwind/actions-runner-dind:v2.284.0-ubuntu-20.04
+FROM summerwind/actions-runner-dind:v2.285.1-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -38,6 +38,7 @@ RUN apt-get update --fix-missing \
  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/* /requirements.apt \
  && yarn global add \
       @bn-digital/vault-env \
+      @sentry/cli \
       concurrently \
       eslint \
       less \
@@ -54,9 +55,9 @@ WORKDIR /runner
 ONBUILD WORKDIR /usr/local/src
 
 FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS cms
-COPY ./packages/cms .
 ENTRYPOINT ["yarn"]
 CMD ["strapi", "start"]
+ONBUILD COPY --chown=node ./packages/cms .
 
 FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS website
-COPY ./packages/website/build .
+ONBUILD COPY --chown=node ./packages/website/build .

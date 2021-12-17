@@ -1,10 +1,12 @@
 # nonk8s
-apiVersion: pipelines/v2beta24
+apiVersion: skaffold/v2beta26
 kind: Config
 build:
   artifacts:
     - image: yarn
       context: images/build
+      docker:
+        target: default
     - image: nodejs
       context: images/runtime
       docker:
@@ -13,8 +15,6 @@ build:
       context: images/runtime
       docker:
         target: php-nginx
-    - image: openvpn
-      context: images/openvpn
   tagPolicy:
     sha256: { }
   local:
@@ -22,7 +22,7 @@ build:
     useBuildkit: true
     concurrency: 0
 profiles:
-  - name: production
+  - name: release
     build:
       tagPolicy:
         gitCommit:
@@ -30,5 +30,5 @@ profiles:
           ignoreChanges: true
       local:
         push: true
+        useDockerCLI: true
         useBuildkit: true
-        concurrency: 0
