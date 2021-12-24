@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Import Vault secrets
-        uses: hashicorp/vault-action@v2.3.1
+        uses: hashicorp/vault-action@v2.4.0
         id: secrets
         with:
           method: github

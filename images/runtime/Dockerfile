@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.26.0
-ARG nodejs_version=16.13.1
+ARG nodejs_version=16.11.0
 ARG php_version=8.0
 FROM node:${nodejs_version}-slim AS nodejs-base
 
@@ -30,7 +30,6 @@ RUN npm install --global serve
 SHELL ["/bin/sh", "-c"]
 ENTRYPOINT ["serve"]
 CMD ["--single", "."]
-ENV HOST=127.0.0.1
 ENV PORT=5000
 ENV NODE_ENV=production
 EXPOSE 5000

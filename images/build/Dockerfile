@@ -1,10 +1,11 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=16.13.0
+ARG nodejs_version=16.11.0
 FROM node:${nodejs_version}-slim AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
 COPY app .
-RUN yarn
+RUN yarn \
+ && yarn rebuild
 
 FROM summerwind/actions-runner-dind:v2.285.1-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
@@ -15,6 +16,7 @@ LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.title="NodeJS DinD Build Pack for Github Workflows" \
       org.opencontainers.image.description="Base environment used for building NodeJS applications in Docker with Github Action runner"
 USER root
+WORKDIR /usr/local/src
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \
@@ -26,7 +28,17 @@ RUN apt-get update --fix-missing \
       lsb-release \
       curl \
       gnupg \
+      g++ \
+      gcc \
+      gyp \
+      make \
       libssl-dev \
+      libjpeg-turbo8-dev \
+      libgsf-1-dev \
+      libglib2.0-dev \
+      libtiff5-dev \
+      libexpat1-dev \
+      libvips-dev \
       wget \
  && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
@@ -44,20 +56,25 @@ RUN apt-get update --fix-missing \
       less \
       npm \
       prettier \
+      sharp-cli \
       sass \
+      sharp-cli \
       stylelint \
-      typescript \
-      yarn
+      typescript
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
-VOLUME ["/usr/local/yarn"]
 COPY --from=yarn --chown=runner /usr/local/yarn /usr/local/yarn
+COPY --from=yarn --chown=runner /usr/local/src /usr/local/src
+USER runner
+ONBUILD USER root
 WORKDIR /runner
 ONBUILD WORKDIR /usr/local/src
-
-FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS cms
-ENTRYPOINT ["yarn"]
-CMD ["strapi", "start"]
-ONBUILD COPY --chown=node ./packages/cms .
-
-FROM dcr.bndigital.dev/library/nodejs:1.0.1 AS website
-ONBUILD COPY --chown=node ./packages/website/build .
+ONBUILD COPY ./package.json .
+ONBUILD RUN yarn set version berry \
+         && yarn config set enableGlobalCache true \
+         && yarn config set globalFolder /usr/local/yarn \
+         && yarn config set nodeLinker node-modules \
+         && yarn config set enableTelemetry false \
+         && yarn config set preferAggregateCacheInfo false \
+         && yarn plugin import workspace-tools \
+         && yarn plugin import version
+VOLUME ["/usr/local/yarn"]
