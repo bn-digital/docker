@@ -16,12 +16,12 @@ jobs:
         id: secrets
         with:
           method: github
-          url: ${{ secrets.vault_endpoint }}
-          githubToken: ${{ secrets.gh_token }}
+          url: ${{ secrets.VAULT_PUBLIC_URL }}
+          githubToken: ${{ secrets.GH_TOKEN }}
           secrets: |
-            infrastructure/data/bndigital/staging/registry docker-url | docker_url ;
-            infrastructure/data/bndigital/staging/registry docker-username | docker_username ;
-            infrastructure/data/bndigital/staging/registry docker-password | docker_password ;
+            infrastructure/data/harbor registry | docker_url ;
+            infrastructure/data/harbor username | docker_username ;
+            infrastructure/data/harbor password | docker_password ;
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
