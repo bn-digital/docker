@@ -1,7 +1,31 @@
 version: 2
 updates:
   - package-ecosystem: docker
-    directory: images
+    directory: images/build
+    schedule:
+      interval: weekly
+    assignees:
+      - VladyslavVolkov
+    reviewers:
+      - VladyslavVolkov
+  - package-ecosystem: docker
+    directory: images/openvpn
+    schedule:
+      interval: weekly
+    assignees:
+      - VladyslavVolkov
+    reviewers:
+      - VladyslavVolkov
+  - package-ecosystem: docker
+    directory: images/runtime
+    schedule:
+      interval: weekly
+    assignees:
+      - VladyslavVolkov
+    reviewers:
+      - VladyslavVolkov
+  - package-ecosystem: npm
+    directory: images/build/app
     schedule:
       interval: weekly
     assignees:

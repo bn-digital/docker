@@ -20,7 +20,9 @@ RUN apt-get update --fix-missing \
  && yarn config set enableTelemetry false \
  && yarn config set preferAggregateCacheInfo true \
  && yarn plugin import workspace-tools \
+ && yarn plugin import interactive-tools \
  && yarn plugin import version \
+ && yarn plugin import typescript \
  && yarn \
  && yarn rebuild
 
