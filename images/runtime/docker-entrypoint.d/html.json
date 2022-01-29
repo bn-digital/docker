@@ -7,9 +7,7 @@
   "routes": [
     {
       "action": {
-        "share": "/usr/local/src$uri",
-        "user": "unit",
-        "group": "unit"
+        "share": "/usr/local/src$uri"
       }
     }
   ],
