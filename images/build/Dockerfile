@@ -4,10 +4,27 @@ FROM node:${nodejs_version}-slim AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
 COPY app .
-RUN yarn \
+VOLUME ["/usr/local/src"]
+VOLUME ["/usr/local/yarn"]
+RUN apt-get update --fix-missing \
+ && apt-get upgrade --yes \
+ && apt-get dist-upgrade --yes \
+ && apt-get install --no-install-recommends --no-install-suggests --yes \
+      git \
+      ca-certificates \
+      build-essential \
+ && yarn config set enableGlobalCache true \
+ && yarn config set globalFolder $YARN_GLOBAL_FOLDER \
+ && yarn config set nodeLinker node-modules \
+ && yarn config set nmHoistingLimits workspaces \
+ && yarn config set enableTelemetry false \
+ && yarn config set preferAggregateCacheInfo true \
+ && yarn plugin import workspace-tools \
+ && yarn plugin import version \
+ && yarn \
  && yarn rebuild
 
-FROM summerwind/actions-runner-dind:v2.286.1-ubuntu-20.04 AS default
+FROM summerwind/actions-runner-dind:v2.287.1-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
