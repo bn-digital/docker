@@ -11,6 +11,10 @@ build:
       context: images/runtime
       docker:
         target: nodejs
+    - image: nginx
+      context: images/runtime
+      docker:
+        target: static-nginx
     - image: php
       context: images/runtime
       docker:

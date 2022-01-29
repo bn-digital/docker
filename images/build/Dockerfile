@@ -50,7 +50,6 @@ RUN apt-get update --fix-missing \
  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/* /requirements.apt \
  && yarn global add \
       @bn-digital/vault-env \
-      @sentry/cli \
       eslint \
       less \
       npm \
@@ -59,19 +58,12 @@ RUN apt-get update --fix-missing \
       stylelint \
       typescript
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
+VOLUME ["/usr/local/yarn"]
 COPY --from=yarn --chown=runner /usr/local/yarn /usr/local/yarn
-COPY --from=yarn --chown=runner /usr/local/src /usr/local/src
+COPY --from=yarn --chown=runner /usr/local/src/.yarn /usr/local/src/.yarn
+COPY --from=yarn --chown=runner /usr/local/src/.yarnrc.yml /usr/local/src/.yarnrc.yml
 USER runner
-ONBUILD USER root
 WORKDIR /runner
+ONBUILD USER root
 ONBUILD WORKDIR /usr/local/src
 ONBUILD COPY ./package.json .
-ONBUILD RUN yarn set version berry \
-         && yarn config set enableGlobalCache true \
-         && yarn config set globalFolder /usr/local/yarn \
-         && yarn config set nodeLinker node-modules \
-         && yarn config set enableTelemetry false \
-         && yarn config set preferAggregateCacheInfo false \
-         && yarn plugin import workspace-tools \
-         && yarn plugin import version
-VOLUME ["/usr/local/yarn"]

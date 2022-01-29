@@ -7,10 +7,11 @@
   "routes": [
     {
       "action": {
-        "share": "/usr/local/src/",
-        "user": "bn",
-        "group": "bn"
+        "share": "/usr/local/src$uri",
+        "user": "unit",
+        "group": "unit"
       }
     }
-  ]
+  ],
+  "access_log": "/var/log/access.log"
 }

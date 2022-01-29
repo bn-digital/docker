@@ -68,4 +68,6 @@ if [ "$1" = "unitd" -o "$1" = "unitd-debug" ]; then
     fi
 fi
 
+ln -sf /dev/stdout /var/log/access.log
+
 exec "$@"

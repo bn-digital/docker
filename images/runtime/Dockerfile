@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG unit_version=1.26.0
+ARG unit_version=1.26.1
 ARG nodejs_version=16.13.2
 ARG php_version=8.0
 FROM node:${nodejs_version}-slim AS nodejs-base
@@ -19,6 +19,17 @@ ENV NODE_NO_WARNINGS=1
 ENV PORT=5000
 ENV NODE_ENV=production
 COPY docker-entrypoint.d/nodejs.json /docker-entrypoint.d/unit.json
+
+FROM nginx/unit:${unit_version}-minimal AS static-nginx
+LABEL org.opencontainers.image.authors="BN Enginseers" \
+      org.opencontainers.image.url="https://github.com/bn-digital/docker" \
+      org.opencontainers.image.source="https://github.com/bn-digital/docker" \
+      org.opencontainers.image.vendor="BN Digital" \
+      org.opencontainers.image.licenses="MIT"
+ENV NODE_NO_WARNINGS=1
+ENV PORT=5000
+ENV NODE_ENV=production
+COPY docker-entrypoint.d/html.json /docker-entrypoint.d/unit.json
 
 FROM nodejs-base AS nodejs
 LABEL org.opencontainers.image.authors="BN Enginseers" \
