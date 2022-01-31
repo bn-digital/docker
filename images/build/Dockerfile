@@ -58,6 +58,7 @@ RUN apt-get update --fix-missing \
       libtiff5-dev \
       libexpat1-dev \
       libvips-dev \
+      sqlite3 \
       wget \
  && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
@@ -72,6 +73,9 @@ RUN apt-get update --fix-missing \
       eslint \
       less \
       npm \
+      node-gyp \
+      node-pre-gyp \
+      sqlite3 \
       prettier \
       sass \
       stylelint \
