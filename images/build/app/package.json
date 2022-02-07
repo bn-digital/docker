@@ -25,7 +25,7 @@
     "@strapi/plugin-content-manager": "^4.0.6",
     "@strapi/plugin-content-type-builder": "^4.0.6",
     "@strapi/plugin-email": "^4.0.6",
-    "@strapi/plugin-graphql": "^4.0.6",
+    "@strapi/plugin-graphql": "^4.0.7",
     "@strapi/plugin-i18n": "^4.0.6",
     "@strapi/plugin-sentry": "^4.0.6",
     "@strapi/plugin-upload": "^4.0.6",
