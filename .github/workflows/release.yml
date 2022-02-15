@@ -3,41 +3,40 @@ on:
   push:
     tags:
       - "*.*.*"
-      
-permissions:
-  id-token: write
-  contents: read
-  
+
 jobs:
   docker:
     name: Docker build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
 
       - name: Import Vault secrets
         uses: hashicorp/vault-action@v2.4.0
-        id: secrets
         with:
           method: github
           url: ${{ secrets.VAULT_PUBLIC_URL }}
           githubToken: ${{ github.token }}
           secrets: |
-            infrastructure/data/harbor registry | docker_url ;
-            infrastructure/data/harbor username | docker_username ;
-            infrastructure/data/harbor password | docker_password ;
+            infrastructure/data/harbor registry | DOCKER_REGISTRY ;
+            infrastructure/data/harbor username | DOCKER_USERNAME ;
+            infrastructure/data/harbor password | DOCKER_PASSWORD ;
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          registry: ${{ steps.secrets.outputs.docker_url }}
-          username: ${{ steps.secrets.outputs.docker_username }}
-          password: ${{ steps.secrets.outputs.docker_password }}
+          registry: ${{ env.DOCKER_REGISTRY }}/library
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.14.0
+        uses: hiberbee/github-action-skaffold@1.15.0
         with:
           command: build
           profile: release
-          repository: ${{ steps.secrets.outputs.docker_url }}/library
+          repository: ${{ env.DOCKER_REGISTRY }}/library

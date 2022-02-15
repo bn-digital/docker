@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=16.13.2
+ARG nodejs_version=16.14.0
 FROM node:${nodejs_version}-slim AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
