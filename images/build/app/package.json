@@ -23,7 +23,7 @@
     "@bn-digital/webpack": "^1.19.0",
     "@gravitybv/strapi-plugin-permissions": "^1.0.2",
     "@strapi/plugin-content-manager": "^4.0.7",
-    "@strapi/plugin-content-type-builder": "^4.0.7",
+    "@strapi/plugin-content-type-builder": "^4.1.5",
     "@strapi/plugin-email": "^4.0.7",
     "@strapi/plugin-graphql": "^4.0.7",
     "@strapi/plugin-i18n": "^4.0.7",
