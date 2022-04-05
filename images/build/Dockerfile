@@ -51,12 +51,13 @@ RUN apt-get update --fix-missing \
       gcc \
       gyp \
       make \
-      libssl-dev \
-      libjpeg-turbo8-dev \
-      libgsf-1-dev \
-      libglib2.0-dev \
-      libtiff5-dev \
       libexpat1-dev \
+      libglib2.0-dev \
+      libgsf-1-dev \
+      libjpeg-turbo8-dev \
+      libsqlite3-dev \
+      libssl-dev \
+      libtiff5-dev \
       libvips-dev \
       sqlite3 \
       wget \
@@ -72,13 +73,14 @@ RUN apt-get update --fix-missing \
       @bn-digital/vault-env \
       eslint \
       less \
-      npm \
       node-gyp \
       node-pre-gyp \
-      sqlite3 \
+      npm \
       prettier \
       sass \
+      sqlite3 \
       stylelint \
+      tar \
       typescript
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 VOLUME ["/usr/local/yarn"]

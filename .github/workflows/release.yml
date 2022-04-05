@@ -32,7 +32,7 @@ jobs:
           password: ${{ env.DOCKER_PASSWORD }}
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.15.0
+        uses: hiberbee/github-action-skaffold@1.17.0
         with:
           command: build
           profile: release

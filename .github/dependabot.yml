@@ -6,24 +6,30 @@ updates:
       interval: weekly
     assignees:
       - VladyslavVolkov
+      - OlehNosach
     reviewers:
       - VladyslavVolkov
+      - OlehNosach
   - package-ecosystem: docker
     directory: images/openvpn
     schedule:
       interval: weekly
     assignees:
       - VladyslavVolkov
+      - OlehNosach
     reviewers:
       - VladyslavVolkov
+      - OlehNosach
   - package-ecosystem: docker
     directory: images/runtime
     schedule:
       interval: weekly
     assignees:
       - VladyslavVolkov
+      - OlehNosach
     reviewers:
       - VladyslavVolkov
+      - OlehNosach
   - package-ecosystem: npm
     directory: images/build/app
     schedule:
