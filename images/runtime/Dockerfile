@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.26.1
-ARG nodejs_version=16.14.0
+ARG nodejs_version=16.14.2
 ARG php_version=8.0
 FROM node:${nodejs_version}-slim AS nodejs-base
 

@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=16.14.0
+ARG nodejs_version=16.14.2
 FROM node:${nodejs_version}-slim AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
@@ -26,7 +26,7 @@ RUN apt-get update --fix-missing \
  && yarn \
  && yarn rebuild
 
-FROM summerwind/actions-runner-dind:v2.287.1-ubuntu-20.04 AS default
+FROM summerwind/actions-runner-dind:v2.289.2-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
