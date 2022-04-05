@@ -11,6 +11,7 @@ RUN apt-get update --fix-missing \
  && apt-get dist-upgrade --yes \
  && apt-get install --no-install-recommends --no-install-suggests --yes \
       git \
+      libsqlite3-dev \
       ca-certificates \
       build-essential \
  && yarn config set enableGlobalCache true \
@@ -79,6 +80,7 @@ RUN apt-get update --fix-missing \
       prettier \
       sass \
       sqlite3 \
+      @vscode/sqlite3 \
       stylelint \
       tar \
       typescript
