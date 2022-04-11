@@ -7,10 +7,12 @@ build:
       context: images/build
       docker:
         target: default
+        squash: true
     - image: nodejs
       context: images/runtime
       docker:
         target: nodejs
+        squash: true
     - image: nginx
       context: images/runtime
       docker:
@@ -36,3 +38,4 @@ profiles:
         push: true
         useDockerCLI: true
         useBuildkit: true
+
