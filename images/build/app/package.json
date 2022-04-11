@@ -20,7 +20,7 @@
     "@bn-digital/stylelint-config": "^1.14.1",
     "@bn-digital/vault-env": "^1.4.0",
     "@bn-digital/vite": "^1.9.9",
-    "@bn-digital/webpack": "^1.20.6",
+    "@bn-digital/webpack": "^1.20.7",
     "@gravitybv/strapi-plugin-permissions": "^1.0.3",
     "@strapi/plugin-content-manager": "^4.1.7",
     "@strapi/plugin-content-type-builder": "^4.1.7",
