@@ -27,7 +27,7 @@ RUN apt-get update --fix-missing \
  && yarn \
  && yarn rebuild
 
-FROM summerwind/actions-runner-dind:v2.289.2-ubuntu-20.04 AS default
+FROM summerwind/actions-runner-dind:v2.290.1-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -40,7 +40,7 @@ WORKDIR /usr/local/src
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \
- && apt-get install --no-install-recommends --no-install-suggests --yes \
+ && apt-get install --no-install-4.1.8recommends --no-install-suggests --yes \
       apt-transport-https \
       bash \
       build-essential \
