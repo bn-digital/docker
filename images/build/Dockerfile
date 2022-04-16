@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=17.8
+ARG nodejs_version=17.9
 ARG os_version=bullseye-slim
 FROM node:${nodejs_version}-${os_version} AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
@@ -40,7 +40,7 @@ WORKDIR /usr/local/src
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \
- && apt-get install --no-install-4.1.8recommends --no-install-suggests --yes \
+ && apt-get install --no-install-recommends --no-install-suggests --yes \
       apt-transport-https \
       bash \
       build-essential \

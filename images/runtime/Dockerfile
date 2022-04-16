@@ -1,8 +1,9 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.26.1
-ARG nodejs_version=16.14.2
-ARG php_version=8.0
-FROM node:${nodejs_version}-slim AS nodejs-base
+ARG nodejs_version=17.9
+ARG php_version=8.1
+ARG os_version=bullseye-slim
+FROM node:${nodejs_version}-${os_version} AS nodejs-base
 
 FROM nginx/unit:${unit_version}-node16 AS nodejs-nginx
 RUN apt-get update \
