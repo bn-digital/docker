@@ -65,7 +65,7 @@
     "strapi-admin": "^3.6.8",
     "strapi-connector-bookshelf": "^3.6.8",
     "strapi-middleware-cache": "^2.1.7",
-    "strapi-plugin-config-sync": "^1.0.0",
+    "strapi-plugin-config-sync": "^1.0.1",
     "strapi-plugin-content-manager": "^3.6.8",
     "strapi-plugin-content-type-builder": "^3.6.8",
     "strapi-plugin-email": "^3.6.8",
