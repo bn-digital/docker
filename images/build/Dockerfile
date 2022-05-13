@@ -26,7 +26,7 @@ RUN apt-get update --fix-missing \
  && yarn \
  && yarn rebuild
 
-FROM summerwind/actions-runner-dind:v2.290.1-ubuntu-20.04 AS default
+FROM summerwind/actions-runner-dind:v2.291.1-ubuntu-20.04 AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -61,7 +61,7 @@ RUN apt-get update --fix-missing \
       libvips-dev \
       sqlite3 \
       wget \
- && curl -fsSL https://deb.nodesource.com/setup_${nodejs_version}.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_17.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
  && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \
