@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Import Vault secrets
         uses: hashicorp/vault-action@v2.4.0
@@ -32,8 +32,8 @@ jobs:
           password: ${{ env.DOCKER_PASSWORD }}
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.17.0
+        uses: hiberbee/github-action-skaffold@1.18.0
         with:
           command: build
-          profile: release
+          profile: production
           repository: ${{ env.DOCKER_REGISTRY }}/library

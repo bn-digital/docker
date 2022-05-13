@@ -1,0 +1,16 @@
+schemaVersion: 2.0.0
+globalEnvVars:
+  - key: HOST
+    value: 0.0.0.0
+  - key: PORT
+    value: 0.0.0.0
+  - key: NODE_ENV
+    value: production
+commandTests:
+  - name: node
+    args:
+      - "-v"
+    command: node
+    expectedOutput:
+      - v18
+    exitCode: 0

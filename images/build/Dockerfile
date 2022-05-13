@@ -1,7 +1,6 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=17.9
-ARG os_version=bullseye-slim
-FROM node:${nodejs_version}-${os_version} AS yarn
+ARG nodejs_version=18
+FROM node:${nodejs_version} AS yarn
 ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 WORKDIR /usr/local/src
 COPY app .
@@ -62,7 +61,7 @@ RUN apt-get update --fix-missing \
       libvips-dev \
       sqlite3 \
       wget \
- && curl -fsSL https://deb.nodesource.com/setup_17.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_${nodejs_version}.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
  && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \

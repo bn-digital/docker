@@ -1,0 +1,16 @@
+schemaVersion: 2.0.0
+globalEnvVars:
+  - key: YARN_GLOBAL_FOLDER
+    value: /var/cache/yarn
+  - key: NODE_ENV
+    value: development
+fileExistenceTests:
+  - name: Yarn global cache
+    shouldExist: true
+    permissions: "0644"
+    path: /var/cache/yarn
+  - name: Runner working directory
+    shouldExist: true
+    uid: 1000
+    gid: 1000
+    path: /runner

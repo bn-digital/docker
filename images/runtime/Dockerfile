@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.26.1
-ARG nodejs_version=17.9
+ARG nodejs_version=18
 ARG php_version=8.1
 ARG os_version=bullseye-slim
 FROM node:${nodejs_version}-${os_version} AS nodejs-base
@@ -38,17 +38,17 @@ LABEL org.opencontainers.image.authors="BN Enginseers" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
       org.opencontainers.image.vendor="BN Digital" \
       org.opencontainers.image.licenses="MIT"
-RUN npm install --global serve
 SHELL ["/bin/sh", "-c"]
-ENTRYPOINT ["serve"]
-CMD ["--single", "."]
 ENV NODE_NO_WARNINGS=1
 ENV HOST=0.0.0.0
 ENV PORT=5000
 ENV NODE_ENV=production
 EXPOSE 5000
+ONBUILD RUN npm install --global serve
 ONBUILD USER node
 ONBUILD WORKDIR /usr/local/src
+ONBUILD ENTRYPOINT ["serve"]
+ONBUILD CMD ["--single", "."]
 
 
 FROM nginx/unit:${unit_version}-php${php_version} AS php-nginx
