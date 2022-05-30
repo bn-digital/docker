@@ -6,11 +6,13 @@ build:
     - image: yarn
       context: images/build
       docker:
-        target: default
+        target: yarn
+        squash: true
     - image: nodejs
       context: images/runtime
       docker:
         target: nodejs
+        squash: true
   tagPolicy:
     sha256: { }
   local:

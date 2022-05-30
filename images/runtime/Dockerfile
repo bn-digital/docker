@@ -2,7 +2,7 @@
 ARG unit_version=1.26.1
 ARG nodejs_version=18
 ARG php_version=8.1
-ARG os_version=bullseye-slim
+ARG os_version=alpine
 FROM node:${nodejs_version}-${os_version} AS nodejs-base
 
 FROM nginx/unit:${unit_version}-node16 AS nodejs-nginx

@@ -1,18 +1,14 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
-FROM node:${nodejs_version} AS yarn
-ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
+ARG os_version=alpine
+FROM node:${nodejs_version}-${os_version} AS yarn
+ENV YARN_GLOBAL_FOLDER=/var/cache/yarn
 WORKDIR /usr/local/src
 COPY app .
 VOLUME ["/usr/local/src"]
-VOLUME ["/usr/local/yarn"]
-RUN apt-get update --fix-missing \
- && apt-get upgrade --yes \
- && apt-get dist-upgrade --yes \
- && apt-get install --no-install-recommends --no-install-suggests --yes \
-      git \
-      ca-certificates \
-      build-essential \
+VOLUME ["/var/cache/yarn"]
+RUN apk add --update --no-cache alpine-sdk \
+ && apk upgrade --available \
  && yarn config set enableGlobalCache true \
  && yarn config set globalFolder $YARN_GLOBAL_FOLDER \
  && yarn config set nodeLinker node-modules \
@@ -24,9 +20,10 @@ RUN apt-get update --fix-missing \
  && yarn plugin import version \
  && yarn plugin import typescript \
  && yarn \
- && yarn rebuild
+ && yarn rebuild \
+ && rm -rf /usr/local/src/*
 
-FROM summerwind/actions-runner-dind:v2.291.1-ubuntu-20.04 AS default
+FROM node:${nodejs_version} AS default
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -36,6 +33,7 @@ LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.description="Base environment used for building NodeJS applications in Docker with Github Action runner"
 USER root
 WORKDIR /usr/local/src
+ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \
@@ -44,21 +42,21 @@ RUN apt-get update --fix-missing \
       bash \
       build-essential \
       ca-certificates \
-      lsb-release \
       curl \
-      gnupg \
       g++ \
       gcc \
+      gnupg \
       gyp \
-      make \
       libexpat1-dev \
       libglib2.0-dev \
       libgsf-1-dev \
-      libjpeg-turbo8-dev \
+      libjpeg-dev \
       libsqlite3-dev \
       libssl-dev \
       libtiff5-dev \
       libvips-dev \
+      lsb-release \
+      make \
       sqlite3 \
       wget \
  && curl -fsSL https://deb.nodesource.com/setup_17.x | bash - \
@@ -83,13 +81,9 @@ RUN apt-get update --fix-missing \
       stylelint \
       tar \
       typescript
-ENV YARN_GLOBAL_FOLDER=/usr/local/yarn
 VOLUME ["/usr/local/yarn"]
 COPY --from=yarn --chown=runner /usr/local/yarn /usr/local/yarn
 COPY --from=yarn --chown=runner /usr/local/src/.yarn /usr/local/src/.yarn
 COPY --from=yarn --chown=runner /usr/local/src/.yarnrc.yml /usr/local/src/.yarnrc.yml
-USER runner
-WORKDIR /runner
-ONBUILD USER root
-ONBUILD WORKDIR /usr/local/src
-ONBUILD COPY ./package.json .
+USER node
+WORKDIR /usr/local/src
