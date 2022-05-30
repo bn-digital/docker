@@ -43,9 +43,9 @@ ENV HOST=0.0.0.0
 ENV PORT=5000
 ENV NODE_ENV=production
 EXPOSE $PORT
+RUN npm install --global serve
 USER node
 WORKDIR /usr/local/src
-ONBUILD RUN npm install --global serve
 ONBUILD ENTRYPOINT ["serve"]
 ONBUILD CMD ["--single", "."]
 
