@@ -1,16 +1,11 @@
 schemaVersion: 2.0.0
 globalEnvVars:
   - key: HOST
-    value: 0.0.0.0
+    value: "0.0.0.0"
   - key: PORT
-    value: 0.0.0.0
+    value: "5000"
   - key: NODE_ENV
-    value: production
-commandTests:
-  - name: node
-    args:
-      - "-v"
-    command: node
-    expectedOutput:
-      - v18
-    exitCode: 0
+    value: "production"
+metadataTest:
+  exposedPorts:
+    - "5000"

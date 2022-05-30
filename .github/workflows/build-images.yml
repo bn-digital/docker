@@ -24,6 +24,7 @@ jobs:
 
       - name: Import Vault secrets
         uses: hashicorp/vault-action@v2.4.0
+        continue-on-error: true
         with:
           method: github
           url: ${{ secrets.VAULT_ENDPOINT }}
@@ -38,6 +39,7 @@ jobs:
 
       - name: Generate cms .env files
         uses: bn-digital/vault-env@latest
+        continue-on-error: true
         with:
           endpoint: ${{ env.VAULT_ENDPOINT }}
           token: ${{ env.GITHUB_TOKEN }}
@@ -46,6 +48,7 @@ jobs:
 
       - name: Generate website .env files
         uses: bn-digital/vault-env@latest
+        continue-on-error: true
         with:
           endpoint: ${{ env.VAULT_ENDPOINT }}
           token: ${{ env.GITHUB_TOKEN }}

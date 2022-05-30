@@ -7,7 +7,7 @@ on:
 jobs:
   docker:
     name: Docker build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout sources
@@ -35,5 +35,6 @@ jobs:
         uses: hiberbee/github-action-skaffold@1.18.0
         with:
           command: build
+          skip-tests: false
           profile: production
           repository: ${{ env.DOCKER_REGISTRY }}/library

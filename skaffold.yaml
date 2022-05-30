@@ -16,9 +16,7 @@ build:
   tagPolicy:
     sha256: { }
   local:
-    push: true
     useBuildkit: true
-
 test:
   - image: yarn
     structureTests:
@@ -38,6 +36,3 @@ profiles:
           ignoreChanges: true
       local:
         push: true
-        useDockerCLI: true
-        useBuildkit: true
-

@@ -7,3 +7,7 @@ commandTests:
     expectedOutput:
       - v18
     exitCode: 0
+metadataTest:
+  workdir: /usr/local/src
+  entrypoint:
+    - docker-entrypoint.sh

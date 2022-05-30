@@ -7,10 +7,9 @@ globalEnvVars:
 fileExistenceTests:
   - name: Yarn global cache
     shouldExist: true
-    permissions: "0644"
+    permissions: "drwxr-xr-x"
     path: /var/cache/yarn
-  - name: Runner working directory
-    shouldExist: true
-    uid: 1000
-    gid: 1000
-    path: /runner
+metadataTest:
+  volumes:
+    - /usr/local/src
+    - /var/cache/yarn

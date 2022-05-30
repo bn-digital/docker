@@ -5053,6 +5053,7 @@ __metadata:
     "@bn-digital/vault-env": ^1.4.0
     "@bn-digital/vite": ^1.11.7
     "@bn-digital/webpack": ^1.21.0
+    "@googlemaps/react-wrapper": ^1.1.34
     "@gravitybv/strapi-plugin-permissions": ^1.0.3
     "@mapbox/node-pre-gyp": ^1.0.9
     "@strapi/plugin-content-manager": ^4.1.12
@@ -5073,6 +5074,7 @@ __metadata:
     "@types/react-gtm-module": ^2.0.1
     "@types/react-helmet": ^6.1.5
     "@types/react-router-hash-link": ^2.4.5
+    "@vscode/sqlite3": ^5.0.8
     antd: ^4.20.7
     commander: ^9.3.0
     core-js: ^3.22.7
@@ -5087,6 +5089,7 @@ __metadata:
     moment: ^2.29.3
     nodemon: ^2.0.16
     pg: ^8.7.3
+    prom-client: ^14.0.1
     react-ga: ^3.3.0
     react-gtm-module: ^2.0.11
     react-helmet: ^6.1.0
@@ -5098,13 +5101,14 @@ __metadata:
     react-router-dom: ^6.3.0
     react-use: ^17.4.0
     sass: ^1.52.1
+    sharp: ^0.30.6
     slugify: ^1.6.5
     sqlite3: ^5.0.8
     strapi-plugin-config-sync: ^1.0.1
     strapi-plugin-email-designer: ^2.1.1
     strapi-plugin-graphs-builder: ^1.0.0
-    strapi-plugin-import-export-content: ^0.4.2
     strapi-plugin-sitemap: ^2.0.8
+    strapi-prometheus: ^0.6.2
     ts-node: ^10.8.0
     tslib: ^2.4.0
     typescript: ^4.7.2
@@ -5638,6 +5642,26 @@ __metadata:
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
   checksum: d05081e0887a49c178b75ee3067bd6ee086f73c154d121b854fb2e044e8a89cb1cbb6de3a0dd93a519b80f0531fda68b099dd7256205f7fbb3490324342f2217
+  languageName: node
+  linkType: hard
+
+"@googlemaps/js-api-loader@npm:^1.13.2":
+  version: 1.14.3
+  resolution: "@googlemaps/js-api-loader@npm:1.14.3"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+  checksum: 55ec4519c3bd99a489fc55715bfe5c12a617eff75101c16f237d2c8d56852f607bb74d50ca2204fe371d6b793741db57e4c487658f0d284a5d3bd2ecbcc2a15d
+  languageName: node
+  linkType: hard
+
+"@googlemaps/react-wrapper@npm:^1.1.34":
+  version: 1.1.34
+  resolution: "@googlemaps/react-wrapper@npm:1.1.34"
+  dependencies:
+    "@googlemaps/js-api-loader": ^1.13.2
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 4ae752c36842afdb1770325d76bffc263de9e54005a694acca0f08f8f8ec04bf6a7787c71631da1e7b00a1528a96388aa36fe8e196e05ed5d679e83420eababf
   languageName: node
   linkType: hard
 
@@ -9304,6 +9328,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vscode/sqlite3@npm:^5.0.8":
+  version: 5.0.8
+  resolution: "@vscode/sqlite3@npm:5.0.8"
+  dependencies:
+    node-addon-api: ^4.2.0
+    node-gyp: latest
+  checksum: fba438ffa5bdcfd216292e4b28116689bebe728be7296ce508e6da6e2573dbd2b7cefe97f94d71f358b9440f309af7bc2a5604f7ad1df134aac0035c6c51ba58
+  languageName: node
+  linkType: hard
+
 "@webassemblyjs/ast@npm:1.11.1":
   version: 1.11.1
   resolution: "@webassemblyjs/ast@npm:1.11.1"
@@ -11026,6 +11060,13 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"bintrees@npm:1.0.2":
+  version: 1.0.2
+  resolution: "bintrees@npm:1.0.2"
+  checksum: 56a52b7d3634e30002b1eda740d2517a22fa8e9e2eb088e919f37c030a0ed86e364ab59e472fc770fc8751308054bb1c892979d150e11d9e11ac33bcc1b5d16e
   languageName: node
   linkType: hard
 
@@ -13494,20 +13535,6 @@ __metadata:
   version: 3.0.10
   resolution: "csstype@npm:3.0.10"
   checksum: 20a8fa324f2b33ddf94aa7507d1b6ab3daa6f3cc308888dc50126585d7952f2471de69b2dbe0635d1fdc31223fef8e070842691877e725caf456e2378685a631
-  languageName: node
-  linkType: hard
-
-"csv-parse@npm:^4.15.3":
-  version: 4.16.3
-  resolution: "csv-parse@npm:4.16.3"
-  checksum: 5ad7790fc31c32ca1623bad1a54906134ba44fa109e8dd2dfda440bf7e9fd93610d9076a78f45c872701bfafdf7f93c9b75500c09d7efd6611d863f1d45ec69f
-  languageName: node
-  linkType: hard
-
-"csv-string@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "csv-string@npm:4.0.1"
-  checksum: 2ecb03327b09bb131eb9d9cda4c035f6bde1d3acc860940137e47e8167c568173dffbefdac4cc2c0fb076329b6a07630b4acf98b16fb34c527edd8996afd51c3
   languageName: node
   linkType: hard
 
@@ -23254,6 +23281,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-addon-api@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "node-addon-api@npm:5.0.0"
+  dependencies:
+    node-gyp: latest
+  checksum: 7c5e2043ac37f6108784d94ed73a44ae6d3e68eb968de60680922fc6bc3d17fa69448c0feb4e0c9d3f4c74a0324822e566a8340a56916d9d6f23cb3e85620334
+  languageName: node
+  linkType: hard
+
 "node-domexception@npm:1.0.0":
   version: 1.0.0
   resolution: "node-domexception@npm:1.0.0"
@@ -25938,6 +25974,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prebuild-install@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "prebuild-install@npm:7.1.0"
+  dependencies:
+    detect-libc: ^2.0.0
+    expand-template: ^2.0.3
+    github-from-package: 0.0.0
+    minimist: ^1.2.3
+    mkdirp-classic: ^0.5.3
+    napi-build-utils: ^1.0.1
+    node-abi: ^3.3.0
+    npmlog: ^4.0.1
+    pump: ^3.0.0
+    rc: ^1.2.7
+    simple-get: ^4.0.0
+    tar-fs: ^2.0.0
+    tunnel-agent: ^0.6.0
+  bin:
+    prebuild-install: bin.js
+  checksum: 204f2d89c6d6179fa1039036514aa72f7d0b537e421ef72c40840286e318f41489f00f22c6acc725cce6e10d43825b69dcabeaadfc917db781c58cd56fc25f90
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -26001,7 +26060,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.23.0, prismjs@npm:^1.25.0, prismjs@npm:~1.25.0":
+"prismjs@npm:^1.25.0, prismjs@npm:~1.25.0":
   version: 1.25.0
   resolution: "prismjs@npm:1.25.0"
   checksum: 04d8eae9d1b26b76c350bc65621584c8f8cab80ace7da3953f8aef2f9a8dd4b4f71c1d15bc5c67f126ddc90cd5af613919dc1340589a6c57355bed86fa3ac010
@@ -26038,6 +26097,15 @@ __metadata:
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: f67403fe7b34912148d9252cb7481266a354bd99ce82c835f79070643bb3c6583d10dbcfda4d41e04bbc1d8437e9af0fb1e1f2135727878f5308682a579429b7
+  languageName: node
+  linkType: hard
+
+"prom-client@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "prom-client@npm:14.0.1"
+  dependencies:
+    tdigest: ^0.1.1
+  checksum: 864c19b7086eda8fae652385bc8b8aeb155f85922e58672d07a64918a603341e120e65e08f9d77ccab546518dc18930284da8743c2aac3c968f626d7063d6bba
   languageName: node
   linkType: hard
 
@@ -27901,16 +27969,6 @@ __metadata:
   peerDependencies:
     react: ^16.3.0 || ^17.0.0
   checksum: 324511ea8f6669555e166b4af280cdf46034bf0e33c486711e3ce17f88f6f21fed17055098408be1347657d0cbcd614bca944cf9f8e4ecfa96a21d13893fe9fc
-  languageName: node
-  linkType: hard
-
-"react-simple-code-editor@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "react-simple-code-editor@npm:0.11.0"
-  peerDependencies:
-    react: ^16.0.0
-    react-dom: ^16.0.0
-  checksum: 20d9381c77c7a7ef256e2d871e1b0ab95cc0b025b3933467840f6608ce37835f98785d50b6709df7e4daf75889f3c95a0d80b1809f8399b2361ec282a063196b
   languageName: node
   linkType: hard
 
@@ -29929,6 +29987,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sharp@npm:^0.30.6":
+  version: 0.30.6
+  resolution: "sharp@npm:0.30.6"
+  dependencies:
+    color: ^4.2.3
+    detect-libc: ^2.0.1
+    node-addon-api: ^5.0.0
+    node-gyp: latest
+    prebuild-install: ^7.1.0
+    semver: ^7.3.7
+    simple-get: ^4.0.1
+    tar-fs: ^2.1.1
+    tunnel-agent: ^0.6.0
+  checksum: 2560b5769d78ee660d767e59f6fa56531c448d16383f9700e4ecb8016382104c1bb42991bdd4ea741c0f4d934ea5246c5d602fc5f39062bcc1c2c8786421fd5a
+  languageName: node
+  linkType: hard
+
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
   resolution: "shebang-command@npm:1.2.0"
@@ -30734,18 +30809,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strapi-plugin-import-export-content@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "strapi-plugin-import-export-content@npm:0.4.2"
-  dependencies:
-    csv-parse: ^4.15.3
-    csv-string: ^4.0.1
-    prismjs: ^1.23.0
-    react-simple-code-editor: ^0.11.0
-  checksum: df46f273d8e5553312266c890861bcda8b86fc57e4de6a1458ed0c39f80ee19bc5833e6b87176068441f82bca90e5fe2e995c1dfc2891579f390047fd85084ba
-  languageName: node
-  linkType: hard
-
 "strapi-plugin-sitemap@npm:^2.0.8":
   version: 2.0.8
   resolution: "strapi-plugin-sitemap@npm:2.0.8"
@@ -30758,6 +30821,16 @@ __metadata:
   peerDependencies:
     "@strapi/strapi": ^4.0.0
   checksum: 8ecf577e1a52c17e0c69d1fd6076f0fbfa45f089021bbc67ea388307b6aca7f036692dee40de79e86ae9314317f271bf327e6f2a321708850c020e666644c803
+  languageName: node
+  linkType: hard
+
+"strapi-prometheus@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "strapi-prometheus@npm:0.6.2"
+  dependencies:
+    prom-client: ^14.0.1
+    yup: ^0.32.11
+  checksum: ff05e964a0de7f4c221619f57e2cd50a937227cf8bcae93230de2ac9440b6abc349ccda62258588a1cf9df957d2293c0496b73a27afc59c0170a0fa75bfe49e3
   languageName: node
   linkType: hard
 
@@ -31705,6 +31778,15 @@ __metadata:
   version: 3.0.2
   resolution: "tarn@npm:3.0.2"
   checksum: 27a69658f02504979c5b02e500522e78ec12ef893b90cb00fdef794f9d847a92ed78f6c0ad12e82b8919519bded6a8d6d0000442cd0c6d6ea83cd9b7297729af
+  languageName: node
+  linkType: hard
+
+"tdigest@npm:^0.1.1":
+  version: 0.1.2
+  resolution: "tdigest@npm:0.1.2"
+  dependencies:
+    bintrees: 1.0.2
+  checksum: 44de8246752b6f8c2924685f969fd3d94c36949f22b0907e99bef2b2220726dd8467f4730ea96b06040b9aa2587c0866049640039d1b956952dfa962bc2075a3
   languageName: node
   linkType: hard
 
@@ -34780,7 +34862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yup@npm:^0.32.9":
+"yup@npm:^0.32.11, yup@npm:^0.32.9":
   version: 0.32.11
   resolution: "yup@npm:0.32.11"
   dependencies:
