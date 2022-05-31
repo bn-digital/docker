@@ -7,7 +7,6 @@ build:
       context: images/build
       docker:
         target: yarn
-        squash: true
     - image: nodejs
       context: images/runtime
       docker:
@@ -16,6 +15,7 @@ build:
   tagPolicy:
     sha256: { }
   local:
+    push: true
     useBuildkit: true
 test:
   - image: yarn

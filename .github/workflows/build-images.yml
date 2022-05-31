@@ -6,6 +6,10 @@ on:
         description: Used by Skaffold and Helmfile profiles
         type: string
         default: staging
+      secrets:
+        type: string
+        description: 'Additional key-value map of Value secret paths & names which will be mapped to env variables'
+        required: false
 
 env:
   APP_NAME: ${{ github.event.repository.name }}
@@ -36,6 +40,7 @@ jobs:
             infrastructure/data/sentry url          | SENTRY_URL ;
             infrastructure/data/sentry organization | SENTRY_ORGANIZATION ;
             infrastructure/data/sentry token        | SENTRY_AUTH_TOKEN ;
+            ${{ inputs.secrets }}
 
       - name: Generate cms .env files
         uses: bn-digital/vault-env@latest
@@ -50,8 +55,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
-          endpoint: ${{ env.VAULT_ENDPOINT }}
-          token: ${{ env.GITHUB_TOKEN }}
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/website/.env.${{ env.APP_ENV }}
           target: packages/website/.env.production
 
