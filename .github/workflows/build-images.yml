@@ -46,8 +46,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
-          endpoint: ${{ env.VAULT_ENDPOINT }}
-          token: ${{ env.GITHUB_TOKEN }}
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/cms/.env.${{ env.APP_ENV }}
           target: packages/cms/.env
 
