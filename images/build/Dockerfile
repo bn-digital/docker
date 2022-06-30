@@ -5,7 +5,6 @@ FROM node:${nodejs_version}-${os_version} AS yarn
 ENV YARN_GLOBAL_FOLDER=/var/cache/yarn
 WORKDIR /usr/local/src
 COPY app .
-VOLUME ["/usr/local/src"]
 VOLUME ["/var/cache/yarn"]
 RUN apk add --update --no-cache \
       alpine-sdk \
@@ -25,3 +24,4 @@ RUN apk add --update --no-cache \
  && yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src/*
+VOLUME ["/usr/local/src"]

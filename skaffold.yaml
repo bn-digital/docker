@@ -1,17 +1,21 @@
 # nonk8s
-apiVersion: skaffold/v2beta28
+apiVersion: skaffold/v2beta29
 kind: Config
 build:
   artifacts:
     - image: yarn
       context: images/build
+      hooks:
+        before:
+          - command:
+              - yarn
+              - env
       docker:
         target: yarn
     - image: nodejs
       context: images/runtime
       docker:
         target: nodejs
-        squash: true
   tagPolicy:
     sha256: { }
   local:
@@ -26,7 +30,6 @@ test:
     structureTests:
       - nodejs-container-structure-test.yaml
       - runtime-container-structure-test.yaml
-
 profiles:
   - name: production
     build:
