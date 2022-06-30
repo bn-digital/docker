@@ -17,10 +17,6 @@ RUN apk add --update --no-cache \
  && yarn config set nmHoistingLimits workspaces \
  && yarn config set enableTelemetry false \
  && yarn config set preferAggregateCacheInfo true \
- && yarn plugin import workspace-tools \
- && yarn plugin import interactive-tools \
- && yarn plugin import version \
- && yarn plugin import typescript \
  && yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src/*
