@@ -5,11 +5,6 @@ build:
   artifacts:
     - image: yarn
       context: images/build
-      hooks:
-        before:
-          - command:
-              - yarn
-              - env
       docker:
         target: yarn
     - image: nodejs
