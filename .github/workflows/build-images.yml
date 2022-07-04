@@ -52,7 +52,7 @@ jobs:
         with:
           command: build
           skip-tests: false
-          repository: ${{ env.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           profile: ${{ env.APP_ENV }}
 #
 #      - name: Install Cosign
