@@ -1,14 +1,7 @@
 schemaVersion: 2.0.0
 globalEnvVars:
-  - key: YARN_GLOBAL_FOLDER
-    value: /var/cache/yarn
   - key: NODE_ENV
     value: development
-fileExistenceTests:
-  - name: Yarn global cache
-    shouldExist: true
-    permissions: "drwxr-xr-x"
-    path: /var/cache/yarn
 metadataTest:
   volumes:
     - /usr/local/src
