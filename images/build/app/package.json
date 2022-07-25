@@ -63,7 +63,7 @@
     "react-use": "^17.4.0",
     "sass": "^1.53.0",
     "sharp": "^0.30.7",
-    "sqlite3": "^5.0.9",
+    "sqlite3": "^5.0.10",
     "strapi-plugin-config-sync": "^1.0.2",
     "strapi-plugin-email-designer": "^2.1.1",
     "strapi-plugin-graphs-builder": "^1.0.0",
