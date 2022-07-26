@@ -6,30 +6,32 @@ updates:
       interval: weekly
     assignees:
       - VladyslavVolkov
-      - OlehNosach
     reviewers:
-      - VladyslavVolkov
-      - OlehNosach
+      - @bn-digital/sre
   - package-ecosystem: docker
     directory: images/openvpn
     schedule:
       interval: weekly
     assignees:
       - VladyslavVolkov
-      - OlehNosach
     reviewers:
-      - VladyslavVolkov
-      - OlehNosach
+      - @bn-digital/sre
   - package-ecosystem: docker
     directory: images/runtime
     schedule:
       interval: weekly
     assignees:
       - VladyslavVolkov
-      - OlehNosach
     reviewers:
+      - @bn-digital/sre
+  - package-ecosystem: docker
+    directory: images/dind
+    schedule:
+      interval: weekly
+    assignees:
       - VladyslavVolkov
-      - OlehNosach
+    reviewers:
+      - @bn-digital/sre
   - package-ecosystem: npm
     directory: images/build/app
     schedule:
@@ -37,4 +39,12 @@ updates:
     assignees:
       - VladyslavVolkov
     reviewers:
+      - @bn-digital/sde
+  - package-ecosystem: github-actions
+    directory: .github/workflows
+    schedule:
+      interval: weekly
+    assignees:
       - VladyslavVolkov
+    reviewers:
+      - @bn-digital/sre
