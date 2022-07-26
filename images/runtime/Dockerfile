@@ -16,7 +16,10 @@ ENV HOST=0.0.0.0
 ENV PORT=5000
 ENV NODE_ENV=production
 EXPOSE $PORT
-RUN npm install --global serve
+RUN npm install --global \
+ serve \
+ sqlite-libs \
+ npm
 USER node
 WORKDIR /usr/local/src
 ONBUILD ENTRYPOINT ["serve"]

@@ -13,10 +13,13 @@ build:
       context: images/runtime
       docker:
         target: nodejs
+    - image: dind
+      context: images/dind
   tagPolicy:
     sha256: { }
   local:
     push: true
+    useDockerCLI: true
     useBuildkit: true
 test:
   - image: yarn
