@@ -50,7 +50,7 @@ jobs:
       - name: Build Docker images
         uses: hiberbee/github-action-skaffold@1.19.0
         with:
-          command: run
+          command: build
           skip-tests: false
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           profile: ${{ env.APP_ENV }}
