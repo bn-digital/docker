@@ -11,10 +11,6 @@ env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
 
-concurrency:
-  group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
-  cancel-in-progress: true
-
 jobs:
   docker:
     runs-on: self-hosted
@@ -30,9 +26,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Test Docker images
-        uses: hiberbee/github-action-skaffold@1.19.0
+        uses: hiberbee/github-action-skaffold@1.21.0
         with:
-          command: test --images=${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/website:latest,${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/cms:latest,
-          skip-tests: false
-          repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          command: test
+          images: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/website:latest,${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/cms:latest
           profile: ${{ env.APP_ENV }}
