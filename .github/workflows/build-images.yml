@@ -56,6 +56,5 @@ jobs:
         uses: hiberbee/github-action-skaffold@1.21.0
         with:
           command: build
-          skip-tests: false
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           profile: ${{ env.APP_ENV }}
