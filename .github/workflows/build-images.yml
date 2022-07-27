@@ -53,7 +53,7 @@ jobs:
           helm: version
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.21.0
+        uses: hiberbee/github-action-skaffold@1.21.1
         with:
           command: build
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
