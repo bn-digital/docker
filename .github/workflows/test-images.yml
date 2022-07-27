@@ -28,7 +28,6 @@ jobs:
       - name: Test Docker images
         uses: hiberbee/github-action-skaffold@1.21.0
         with:
-          command: run
-          skip-tests: false
-          repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          command: test
+          images: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/cms:latest,${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}/website:latest
           profile: ${{ env.APP_ENV }}
