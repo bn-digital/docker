@@ -11,13 +11,12 @@ env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
 
-concurrency:
-  group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
-  cancel-in-progress: true
-
 jobs:
   docker:
     runs-on: self-hosted
+    concurrency:
+      group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
+      cancel-in-progress: true
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -47,14 +46,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Install Helm and Kubernetes CLI
-        uses: hiberbee/github-action-helm@1.13.0
-        with:
-          helm: version
-
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.21.1
+        uses: hiberbee/github-action-skaffold@1.22.0
         with:
           command: build
+          skip-tests: false
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           profile: ${{ env.APP_ENV }}
