@@ -33,7 +33,7 @@
     "@strapi/plugin-upload": "^4.3.0-beta.2",
     "@strapi/plugin-users-permissions": "^4.3.0-beta.2",
     "@strapi/provider-email-nodemailer": "^4.3.0-beta.2",
-    "@strapi/provider-upload-aws-s3": "^4.3.0-beta.2",
+    "@strapi/provider-upload-aws-s3": "^4.3.2",
     "@strapi/strapi": "^4.3.0-beta.2",
     "antd": "^4.22.0",
     "better-sqlite3": "^7.6.2",
