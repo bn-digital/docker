@@ -44,7 +44,7 @@
     "commander": "^9.4.0",
     "core-js": "^3.24.1",
     "cross-env": "^7.0.3",
-    "cypress": "^10.4.0",
+    "cypress": "^10.5.0",
     "date-fns": "^2.29.1",
     "dotenv": "^16.0.1",
     "esbuild": "^0.15.3",
