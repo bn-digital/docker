@@ -1,14 +1,13 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version="18.6.0"
+ARG nodejs_version="18.7.0"
 ARG os_version="alpine3.16"
 FROM node:${nodejs_version}-${os_version} AS yarn
 WORKDIR /usr/local/src
 ENV YARN_CACHE_FOLDER=/var/cache/yarn
-VOLUME ["/usr/local/src"]
-VOLUME ["/var/cache/yarn"]
 COPY app .
 RUN apk add --update --no-cache \
       alpine-sdk \
+      build-base \
       sqlite-libs \
       python3 \
       openssl \
@@ -20,3 +19,5 @@ RUN apk add --update --no-cache \
  && yarn config set preferAggregateCacheInfo true \
  && yarn \
  && yarn rebuild
+VOLUME ["/var/cache/yarn"]
+VOLUME ["/root/.cache"]
