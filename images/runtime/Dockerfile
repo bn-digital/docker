@@ -1,8 +1,8 @@
 # syntax docker/dockerfile:latest
 ARG unit_version=1.26.1
 ARG php_version=8.1
-ARG nodejs_version="18.7.0"
-ARG os_version="alpine3.16"
+ARG nodejs_version="18"
+ARG os_version="bullseye-slim"
 FROM node:${nodejs_version}-${os_version} AS nodejs-base
 
 FROM nodejs-base AS nodejs
@@ -22,4 +22,4 @@ RUN npm install --global \
 USER node
 WORKDIR /usr/local/src
 ONBUILD ENTRYPOINT ["serve"]
-ONBUILD CMD ["--single", "."]
+ONBUILD CMD ["--single", "--no-etag", "."]
