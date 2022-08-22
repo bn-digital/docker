@@ -60,6 +60,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
+    "nexus": "^1.3.0",
     "pg": "^8.7.3",
     "prom-client": "^14.0.1",
     "react": "^18.2.0",
@@ -84,6 +85,7 @@
     "strapi-plugin-sitemap": "^2.0.8",
     "strapi-plugin-wysiwyg-tui-editor": "^4.0.1",
     "strapi-prometheus": "^0.6.2",
+    "uuid": "^8.3.2",
     "vite": "^3.0.9",
     "webpack": "^5.74.0"
   },
@@ -94,6 +96,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-hash-link": "^2.4.5",
+    "@types/uuid": "^8.3.4",
     "@vscode/sqlite3": "^5.0.8",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
