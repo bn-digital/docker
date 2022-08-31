@@ -50,7 +50,7 @@ jobs:
         uses: actions/cache@v3
         continue-on-error: true
         with:
-          path: {{.github.workspace}}/.skaffold/cache
+          path: "{{ github.workspace }}/.skaffold/cache"
           key: skaffold-${{ hashFiles('**/cache') }}
           restore-keys: |
             skaffold-
