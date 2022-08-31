@@ -6,7 +6,7 @@
 
 #### NodeJS
 
-[Dockerfile](images/build/Dockerfile)
+[Dockerfile](packages/yarn/Dockerfile)
 
 This image used for assembling NodeJS-based applications. Includes Yarn 3 cached packages from `package.json` as [@bn-digital](https://github.com/bn-digital) technology stack foundation.
 
@@ -14,7 +14,7 @@ This image used for assembling NodeJS-based applications. Includes Yarn 3 cached
 
 #### HTML
 
-[Dockerfile](images/runtime/Dockerfile)
+[Dockerfile](packages/nodejs/Dockerfile)
 
 ```dockerfile
 FROM nginx/unit:${unit_version}-minimal AS html
@@ -22,7 +22,7 @@ FROM nginx/unit:${unit_version}-minimal AS html
 
 #### NodeJS
 
-[Dockerfile](images/runtime/Dockerfile)
+[Dockerfile](packages/nodejs/Dockerfile)
 
 ```dockerfile
 FROM node:${nodejs_version}-bullseye-slim AS nodejs
@@ -30,7 +30,7 @@ FROM node:${nodejs_version}-bullseye-slim AS nodejs
 
 #### PHP
 
-[Dockerfile](images/runtime/Dockerfile)
+[Dockerfile](packages/nodejs/Dockerfile)
 
 ```dockerfile
 FROM nginx/unit:${unit_version}-php${php_version} AS php

@@ -1,7 +1,7 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version="18"
 ARG os_version="bullseye-slim"
-FROM node:${nodejs_version}-${os_version} AS yarn
+FROM node:${nodejs_version}-${os_version}
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \

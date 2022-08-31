@@ -46,6 +46,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Cache artifacts
+        uses: actions/cache@v3
+        continue-on-error: true
+        with:
+          path: {{.github.workspace}}/.skaffold/cache
+          key: skaffold-${{ hashFiles('**/cache') }}
+          restore-keys: |
+            skaffold-
+
       - name: Build Docker images
         uses: hiberbee/github-action-skaffold@1.22.0
         with:

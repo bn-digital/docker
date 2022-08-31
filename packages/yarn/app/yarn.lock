@@ -5325,9 +5325,9 @@ __metadata:
     commander: "npm:^9.4.0"
     core-js: "npm:^3.25.0"
     cross-env: "npm:^7.0.3"
-    cypress: "npm:^10.6.0"
+    cypress: "npm:^10.7.0"
     date-fns: "npm:^2.29.2"
-    dotenv: "npm:^16.0.1"
+    dotenv: "npm:^16.0.2"
     esbuild: "npm:^0.15.6"
     graphql: "npm:^16.6.0"
     gsap: "npm:^3.11.0"
@@ -5354,7 +5354,7 @@ __metadata:
     react-router: "npm:^6.4.0-pre.13"
     react-router-dom: "npm:^6.4.0-pre.13"
     react-use: "npm:^17.4.0"
-    sass: "npm:^1.54.6"
+    sass: "npm:^1.54.7"
     sharp: "npm:^0.30.7"
     sqlite3: "npm:^5.0.11"
     strapi-plugin-config-sync: "npm:^1.0.3"
@@ -14584,9 +14584,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^10.6.0":
-  version: 10.6.0
-  resolution: "cypress@npm:10.6.0"
+"cypress@npm:^10.7.0":
+  version: 10.7.0
+  resolution: "cypress@npm:10.7.0"
   dependencies:
     "@cypress/request": "npm:^2.88.10"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -14632,7 +14632,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 3c64a924158d5cffe7048cdfbeb0dbcacdb4bdce0e3e469e183360713a25755278b59c6eff903223916cfa4fd3905135e604817329e2bad3949c04eed23a2c64
+  checksum: 3ad2c992cc4379db39b456c21822413ea4e87b18934853c05c06f28373eb13adf6c3c414ba958b36921241bc161eff74edc2381729cd677543077324350cd77a
   languageName: node
   linkType: hard
 
@@ -15670,6 +15670,13 @@ __metadata:
   version: 16.0.1
   resolution: "dotenv@npm:16.0.1"
   checksum: beb53488e342583049efbd1afb4488e97fbcecf2052607e512a3871239a3976fc437a01a8ed9e6fcef6adc316796895c89f95fe0a7faa08c77ba8c22794ea1fc
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.2":
+  version: 16.0.2
+  resolution: "dotenv@npm:16.0.2"
+  checksum: 5d6641fbee9e169fdea93c4952c9559230418d9de58ce7c9cb49ae8bca5445686fd8222f952a0b916baa1119eaa4be76d096c3db795395bbf3c0bb1c85e33f8c
   languageName: node
   linkType: hard
 
@@ -30809,16 +30816,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.54.6":
-  version: 1.54.6
-  resolution: "sass@npm:1.54.6"
+"sass@npm:^1.54.7":
+  version: 1.54.7
+  resolution: "sass@npm:1.54.7"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 3d38b672e06e9e87dbeb329dd6cfef21ca09f4441d69faa517282379e319fb6817d8d173cb9aede571d328dc0e689039597d89cc0cd14db52aa8eef294f7c5d3
+  checksum: 484d49852029f05d4bdbe6e006856a256f74e252362613a72cda24dd690c4401040d0b206a6747e58db51f411597b60e6348733523d72cf4af8a6092f07fd0ec
   languageName: node
   linkType: hard
 

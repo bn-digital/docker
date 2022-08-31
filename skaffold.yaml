@@ -4,17 +4,13 @@ kind: Config
 build:
   artifacts:
     - image: yarn
-      context: images/build
-      docker:
-        target: yarn
+      context: packages/yarn
     - image: openvpn
-      context: images/openvpn
+      context: packages/openvpn
     - image: nodejs
-      context: images/runtime
-      docker:
-        target: nodejs
+      context: packages/nodejs
     - image: dind
-      context: images/dind
+      context: packages/nodejs
   tagPolicy:
     sha256: { }
   local:
@@ -30,6 +26,9 @@ test:
       - nodejs-container-structure-test.yaml
       - runtime-container-structure-test.yaml
 profiles:
+  - name: staging
+    activation:
+      - env: CI=true
   - name: production
     build:
       tagPolicy:
