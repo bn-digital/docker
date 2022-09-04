@@ -10,7 +10,7 @@ build:
     - image: nodejs
       context: packages/nodejs
     - image: dind
-      context: packages/nodejs
+      context: packages/dind
   tagPolicy:
     sha256: { }
   local:
