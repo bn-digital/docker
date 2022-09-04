@@ -48,15 +48,14 @@ jobs:
 
       - name: Cache artifacts
         uses: actions/cache@v3
-        continue-on-error: true
         with:
-          path: "{{ github.workspace }}/.skaffold/cache"
-          key: skaffold-${{ hashFiles('**/cache') }}
+          path: "${{ github.workspace }}/.skaffold/cache"
+          key: skaffold-${{ hashFiles('Dockerfile') }}
           restore-keys: |
             skaffold-
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.22.0
+        uses: hiberbee/github-action-skaffold@1.23.0
         with:
           command: build
           skip-tests: false
