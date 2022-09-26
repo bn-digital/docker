@@ -49,8 +49,8 @@ jobs:
       - name: Cache artifacts
         uses: actions/cache@v3
         with:
-          path: "${{ github.workspace }}/.skaffold/cache"
-          key: skaffold-${{ hashFiles('Dockerfile') }}
+          path: ${{ github.workspace }}/.skaffold/cache
+          key: skaffold-${{ hashFiles('**/Dockerfile') }}
           restore-keys: |
             skaffold-
 
