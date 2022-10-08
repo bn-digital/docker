@@ -1,5 +1,4 @@
 # syntax docker/dockerfile:latest
-ARG php_version=8.1
 ARG nodejs_version="18"
 ARG os_version="bullseye-slim"
 FROM node:${nodejs_version}-${os_version}

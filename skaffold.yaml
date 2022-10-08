@@ -11,8 +11,6 @@ build:
       context: packages/nodejs
     - image: dind
       context: packages/dind
-    - image: android
-      context: packages/android
   tagPolicy:
     sha256: { }
   local:
