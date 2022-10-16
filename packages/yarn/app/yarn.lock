@@ -29921,9 +29921,11 @@ __metadata:
   linkType: hard
 
 "undici@npm:^5.8.0":
-  version: 5.8.0
-  resolution: "undici@npm:5.8.0"
-  checksum: caa7f9eaf002b737c0549055d56afe2f52101295091e44c76462ba7761b2ba51e35d74855bd6c9a99b74c89bc04915e4ce1eeb27988447c0818b186788303911
+  version: 5.11.0
+  resolution: "undici@npm:5.11.0"
+  dependencies:
+    busboy: "npm:^1.6.0"
+  checksum: 7e56f782ec25319a2bb711046a736a8ad0c0ce3ff217afd8e7dc9e264ee043c9d2abfe922d3d3dc0c4f3f8f67dac84eae354787bdb006c227ae0ebe720bb4bae
   languageName: node
   linkType: hard
 
