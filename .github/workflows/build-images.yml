@@ -6,11 +6,6 @@ on:
         description: Used by Skaffold and Helmfile profiles
         type: string
         default: staging
-      secrets:
-        required: false
-        description: Used by Skaffold and Helmfile profiles
-        type: string
-        default: staging
 
 env:
   APP_NAME: ${{ github.event.repository.name }}
