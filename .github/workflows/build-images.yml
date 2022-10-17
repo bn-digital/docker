@@ -6,7 +6,11 @@ on:
         description: Used by Skaffold and Helmfile profiles
         type: string
         default: staging
-
+      env-template:
+        required: false
+        description: Env template file
+        type: string
+        default: "staging"
 env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
@@ -14,9 +18,6 @@ env:
 jobs:
   docker:
     runs-on: self-hosted
-    env:
-      VAULT_ENDPOINT: ${{ secrets.VAULT_ENDPOINT }}
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     concurrency:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
@@ -39,7 +40,7 @@ jobs:
         with:
           endpoint: ${{ secrets.VAULT_ENDPOINT }}
           token: ${{ secrets.GH_TOKEN }}
-          template: packages/website/.env.${{ env.APP_ENV }}
+          template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
       - name: Login Docker registry
