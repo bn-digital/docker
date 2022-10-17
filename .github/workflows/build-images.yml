@@ -6,6 +6,11 @@ on:
         description: Used by Skaffold and Helmfile profiles
         type: string
         default: staging
+      secrets:
+        required: false
+        description: Used by Skaffold and Helmfile profiles
+        type: string
+        default: staging
 
 env:
   APP_NAME: ${{ github.event.repository.name }}
@@ -14,6 +19,9 @@ env:
 jobs:
   docker:
     runs-on: self-hosted
+    env:
+      VAULT_ENDPOINT: ${{ secrets.VAULT_ENDPOINT }}
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     concurrency:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
