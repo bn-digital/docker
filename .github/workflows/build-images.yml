@@ -11,9 +11,15 @@ on:
         description: Env template file
         type: string
         default: "staging"
+      version:
+        required: false
+        description: Env template file
+        type: string
+        default: latest
 env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
+  APP_VERSION: ${{ inputs.version }}
 
 jobs:
   docker:
