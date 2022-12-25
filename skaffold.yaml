@@ -1,20 +1,28 @@
 # nonk8s
-apiVersion: skaffold/v2beta29
+apiVersion: skaffold/v4beta1
 kind: Config
 build:
   artifacts:
     - image: yarn
       context: packages/yarn
+      docker:
+        pullParent: true
     - image: openvpn
       context: packages/openvpn
+      docker:
+        pullParent: true
     - image: nodejs
       context: packages/nodejs
+      docker:
+        pullParent: true
     - image: dind
       context: packages/dind
+      docker:
+        pullParent: true
   tagPolicy:
     sha256: { }
   local:
-    concurrency: 0
+    concurrency: 1
     useBuildkit: true
 test:
   - image: yarn
@@ -36,4 +44,5 @@ profiles:
           variant: Tags
           ignoreChanges: true
       local:
+        useBuildkit: true
         push: true

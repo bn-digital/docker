@@ -1,0 +1,9 @@
+**/node_modules*
+**/Dockerfile
+**/test
+**/.yarnrc.yml
+**/.yarn
+**/skaffold.yaml
+**/.idea
+.git
+**/.github

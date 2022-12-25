@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "directoryListing": false,
+  "renderSingle": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "**/*.@(jpg|jpeg|gif|webp|svg|png|ttf|css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,9 @@
-*.iml
-install-state.gz
-.yarn/unplugged
+**/*.iml
 node_modules
+**/.pnp.*
+**/.yarn/*
+!**/.yarn/patches
+!**/.yarn/plugins
+!**/.yarn/releases
+!**/.yarn/sdks
+!**/.yarn/versions

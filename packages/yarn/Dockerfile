@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version="18.11.0"
+ARG nodejs_version="18"
 ARG os_version="bullseye-slim"
 FROM node:${nodejs_version}-${os_version}
 RUN apt-get update --fix-missing \
@@ -42,20 +42,21 @@ RUN apt-get update --fix-missing \
       xauth \
       xfonts-wqy \
       xvfb \
-      # clean up
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean
-ENV YARN_CACHE_FOLDER=/var/cache/yarn
 WORKDIR /usr/local/src
 COPY app .
-RUN yarn config set enableGlobalCache true \
- && yarn config set nodeLinker node-modules \
- && yarn config set nmHoistingLimits workspaces \
+RUN yarn set version berry \
+ && yarn set version 4 \
+ && yarn config set checksumBehavior ignore \
+ && yarn config set enableGlobalCache true \
  && yarn config set enableTelemetry false \
+ && yarn config set globalFolder /root/.yarn \
+ && yarn config set nmMode classic \
+ && yarn config set nodeLinker node-modules \
  && yarn config set preferAggregateCacheInfo true \
  && yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src
 WORKDIR /usr/local/src
-VOLUME ["/var/cache/yarn"]
-VOLUME ["/root/.cache"]
+VOLUME ["/root/.yarn"]

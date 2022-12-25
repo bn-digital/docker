@@ -9,15 +9,13 @@ LABEL org.opencontainers.image.authors="BN Enginseers" \
       org.opencontainers.image.base.name="dcr.bndigital.dev/library/nodejs" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
       org.opencontainers.image.licenses="MIT"
-ENV NODE_NO_WARNINGS=1
-ENV HOST=0.0.0.0
-ENV PORT=5000
-ENV NODE_ENV=production
+ENV NODE_NO_WARNINGS="1" \
+    HOST="0.0.0.0" \
+    PORT="5000" \
+    NODE_ENV=production
 EXPOSE $PORT
-RUN npm install --location=global \
-     serve \
-     npm
 USER node
 WORKDIR /usr/local/src
+COPY --from=dcr.bndigital.dev/library/nodejs:latest /usr/local/bin/serve /usr/local/bin/serve
 ONBUILD ENTRYPOINT ["serve"]
 ONBUILD CMD ["--single", "--no-etag", "."]

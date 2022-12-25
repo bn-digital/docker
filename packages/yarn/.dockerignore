@@ -1,5 +1,3 @@
 /app/node_modules
 /app/.yarn/install-state.gz
-/Dockerfile
-/.dockerignore
-/test
+Dockerfile
