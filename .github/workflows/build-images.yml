@@ -11,9 +11,15 @@ on:
         description: Env template file
         type: string
         default: "staging"
+      version:
+        required: false
+        description: Env template file
+        type: string
+        default: latest
 env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
+  APP_VERSION: ${{ inputs.version }}
 
 jobs:
   docker:
@@ -54,14 +60,15 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/.skaffold/cache
-          key: skaffold-${{ hashFiles('**/Dockerfile') }}
+          key: skaffold-${{ github.sha }}
           restore-keys: |
             skaffold-
-
+            
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.23.0
+        uses: hiberbee/github-action-skaffold@1.24.0
         with:
           command: build
           skip-tests: false
+          cache-file: ${{ github.workspace }}/.skaffold/cache
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           profile: ${{ env.APP_ENV }}
