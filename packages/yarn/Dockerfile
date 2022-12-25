@@ -46,6 +46,7 @@ RUN apt-get update --fix-missing \
       && apt-get clean
 WORKDIR /usr/local/src
 COPY app .
+VOLUME ["/root/.yarn"]
 RUN yarn set version berry \
  && yarn set version 4 \
  && yarn config set checksumBehavior ignore \
