@@ -65,7 +65,7 @@ jobs:
             skaffold-
             
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.24.0
+        uses: hiberbee/github-action-skaffold@1.25.0
         with:
           command: build
           skip-tests: false
