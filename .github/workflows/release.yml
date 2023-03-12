@@ -32,9 +32,8 @@ jobs:
           password: ${{ env.DOCKER_PASSWORD }}
 
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.22.0
+        uses: hiberbee/github-action-skaffold@1.26.0
         with:
-          skaffold-version: 2.0.4
           command: build
           skip-tests: false
           profile: production
