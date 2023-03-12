@@ -46,15 +46,9 @@ RUN apt-get update --fix-missing \
       && apt-get clean
 WORKDIR /usr/local/src
 COPY app .
-RUN yarn set version berry \
- && yarn set version 4 \
- && yarn config set checksumBehavior ignore \
- && yarn config set enableGlobalCache true \
- && yarn config set enableTelemetry false \
- && yarn config set nmMode classic \
- && yarn config set nodeLinker node-modules \
- && yarn config set preferAggregateCacheInfo true \
- && yarn \
+ENV YARN_CACHE_FOLDER=/var/cache/yarn
+RUN yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src
-WORKDIR /usr/local/src
+ONBUILD WORKDIR /usr/local/src
+ONBUILD ENV YARN_CACHE_FOLDER=/var/cache/yarn
