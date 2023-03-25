@@ -1,0 +1,45 @@
+on:
+  workflow_call:
+    inputs:
+      ssh_host:
+        description: SSH host
+        type: string
+        required: true
+      ssh_username:
+        description: SSH username
+        required: true
+        type: string
+    secrets:
+      ssh_public_key:
+        description: SSH public key
+        required: true
+      ssh_private_key:
+        description: SSH private key
+        required: true
+
+jobs:
+  debian:
+    runs-on: self-hosted
+    concurrency:
+      group: ${{ github.event.repository.name }}-docker-${{ inputs.environment }}
+      cancel-in-progress: false
+    steps:
+      - name: Setup Docker
+        uses: appleboy/ssh-action@v0.1.8
+        env:
+          APP_VERSION: ${{ github.ref_name }}
+          DOCKER_REPOSITORY: ${{ secrets.DOCKER_REPOSITORY }}
+          DOMAIN: ${{ vars.DOMAIN }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo apt-get install -y uidmap unzip
+            curl https://get.docker.com -o- | sudo bash
+            dockerd-rootless-setuptool.sh install
+            systemctl --user enable docker
+            sudo loginctl enable-linger $(whoami)
+            sudo setcap cap_net_bind_service=ep $(which rootlesskit)
+            systemctl --user restart docker
