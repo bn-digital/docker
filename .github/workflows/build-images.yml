@@ -20,7 +20,6 @@ env:
   APP_NAME: ${{ github.event.repository.name }}
   APP_ENV: ${{ inputs.environment }}
   APP_VERSION: ${{ inputs.version }}
-
 jobs:
   docker:
     runs-on: self-hosted
@@ -56,19 +55,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Cache artifacts
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.skaffold/cache
-          key: skaffold-${{ github.sha }}
-          restore-keys: |
-            skaffold-
-            
       - name: Build Docker images
         uses: hiberbee/github-action-skaffold@1.26.0
+        env:
+          APP_NAME: ${{ github.event.repository.name }}
+          APP_ENV: ${{ inputs.environment }}
         with:
+          skaffold-version: 2.3.1
           command: build
           skip-tests: false
-          cache-file: ${{ github.workspace }}/.skaffold/cache
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-          profile: ${{ env.APP_ENV }}
+          profile: ${{ inputs.environment }}

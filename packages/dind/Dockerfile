@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-FROM summerwind/actions-runner-dind:ubuntu-22.04
+FROM summerwind/actions-runner-dind:latest
 ARG node_version=18
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
