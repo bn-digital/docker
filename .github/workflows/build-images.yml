@@ -58,12 +58,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Install skaffold
-        run: |
-          curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
-          sudo install skaffold /usr/bin/
-          curl -Lo container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
-          sudo install container-structure-test /usr/bin/
-
-      - name: Build images
-        run: skaffold build --default-repo=${{ env.DOCKER_REPOSITORY }} --tag=${{ inputs.version }}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ${{ env.DOCKER_REPOSITORY }}/app:${{ env.APP_VERSION }}
