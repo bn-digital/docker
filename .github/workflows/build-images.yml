@@ -56,13 +56,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker images
+      - name: Install skaffold
         uses: hiberbee/github-action-skaffold@1.26.0
-        env:
-          SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-          SKAFFOLD_PUSH: true
-          SKAFFOLD_TAG: ${{ env.APP_VERSION }}
-          SKAFFOLD_SKIP_TESTS: false
         with:
           skaffold-version: 2.3.1
-          command: build
+
+      - name: Build images
+        run: skaffold build
+        env:
+          SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          SKAFFOLD_TAG: ${{ env.APP_VERSION }}
+          SKAFFOLD_PUSH: true
+          SKAFFOLD_SKIP_TESTS: false
