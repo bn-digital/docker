@@ -51,6 +51,9 @@ jobs:
           template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Login Docker registry
         uses: docker/login-action@v2
         with:
