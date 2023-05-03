@@ -1,11 +1,11 @@
 schemaVersion: 2.0.0
-globalEnvVars:
-  - key: HOST
-    value: "0.0.0.0"
-  - key: PORT
-    value: "5000"
-  - key: NODE_ENV
-    value: "production"
 metadataTest:
+  envVars:
+    - key: HOST
+      value: "0.0.0.0"
+    - key: PORT
+      value: "5000"
+    - key: NODE_ENV
+      value: "production"
   exposedPorts:
     - "5000"

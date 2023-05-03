@@ -1,12 +1,12 @@
 schemaVersion: 2.0.0
-globalEnvVars:
-  - key: NODE_ENV
-    value: development
 fileExistenceTests:
   - name: Yarn cache
     path: /var/cache/yarn
     shouldExist: true
 metadataTest:
+  envVars:
+    - key: NODE_ENV
+      value: development
   volumes:
     - /usr/local/src
     - /var/cache/yarn

@@ -65,4 +65,4 @@ jobs:
           command: build
           skip-tests: false
           repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-          profile: ${{ inputs.environment }}
+          tag: ${{ env.APP_VERSION }}

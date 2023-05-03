@@ -16,6 +16,6 @@ ENV NODE_NO_WARNINGS="1" \
 EXPOSE $PORT
 USER node
 WORKDIR /usr/local/src
-COPY --from=dcr.bndigital.dev/library/nodejs:latest /usr/local/bin/serve /usr/local/bin/serve
+RUN npm install --global serve
 ONBUILD ENTRYPOINT ["serve"]
 ONBUILD CMD ["--single", "--no-etag", "."]
