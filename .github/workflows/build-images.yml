@@ -64,6 +64,8 @@ jobs:
         run: |
           curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
           sudo install skaffold /usr/bin/
+          curl -Lo container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+          sudo install container-structure-test /usr/bin/
 
       - name: Build images
         run: skaffold build
