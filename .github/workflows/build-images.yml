@@ -26,6 +26,11 @@ jobs:
     concurrency:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
+    env:
+      SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+      SKAFFOLD_TAG: ${{ env.APP_VERSION }}
+      SKAFFOLD_PUSH: true
+      SKAFFOLD_SKIP_TESTS: false
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -59,9 +64,4 @@ jobs:
         run: curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
 
       - name: Build images
-        run:  /bin/bash -c skaffold build
-        env:
-          SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-          SKAFFOLD_TAG: ${{ env.APP_VERSION }}
-          SKAFFOLD_PUSH: true
-          SKAFFOLD_SKIP_TESTS: false
+        run:  /bin/bash -c "skaffold build"
