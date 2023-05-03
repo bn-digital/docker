@@ -56,10 +56,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Install skaffold
-        uses: hiberbee/github-action-skaffold@1.27.0
+        run: curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
 
       - name: Build images
-        run: skaffold build
+        run:  /bin/bash -c skaffold build
         env:
           SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
           SKAFFOLD_TAG: ${{ env.APP_VERSION }}
