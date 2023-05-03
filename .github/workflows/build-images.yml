@@ -27,8 +27,8 @@ jobs:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
     env:
-      SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-      SKAFFOLD_TAG: ${{ env.APP_VERSION }}
+      SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ github.event.repository.name }}
+      SKAFFOLD_TAG: ${{ inputs.version }}
       SKAFFOLD_PUSH: true
       SKAFFOLD_SKIP_TESTS: false
     steps:
@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Install skaffold
-        run: curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
+        run: curl -Lo /usr/local/bin/skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
 
       - name: Build images
-        run:  /bin/bash -c "skaffold build"
+        run: skaffold build
