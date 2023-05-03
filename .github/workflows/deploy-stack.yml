@@ -48,8 +48,8 @@ jobs:
         with:
           docker_host: ssh://${{ inputs.ssh_username }}@${{ inputs.ssh_host }}
           context_name: ${{ env.DOCKER_CONTEXT }}
-          ssh_cert: ${{ inputs.ssh_public_key }}
-          ssh_key: ${{ inputs.ssh_private_key }}
+          ssh_cert: ${{ secrets.ssh_public_key }}
+          ssh_key: ${{ secrets.ssh_private_key }}
 
       - name: Login Docker registry
         uses: docker/login-action@v2
@@ -59,4 +59,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy stack
-        run: docker --context ${{ env.APP_NAME }}-${{ env.APP_ENV }} stack deploy --compose-file docker-compose.yml ${{ env.APP_NAME }}
+        run: docker --context ${{ env.DOCKER_CONTEXT }} stack deploy --compose-file docker-compose.yml ${{ env.APP_NAME }}
