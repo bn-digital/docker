@@ -70,3 +70,5 @@ jobs:
           context: .
           push: true
           tags: ${{ env.DOCKER_REPOSITORY }}/app:${{ env.APP_VERSION }}
+          cache-from: type=registry,ref=${{ env.DOCKER_REPOSITORY }}/app:build
+          cache-to: type=registry,ref=${{ env.DOCKER_REPOSITORY }}/app:build,mode=max
