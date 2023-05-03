@@ -61,7 +61,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Install skaffold
-        run: curl -Lo ~/.local/bin/skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
+        run: | 
+          curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64
+          sudo install skaffold /usr/bin/
 
       - name: Build images
         run: skaffold build
