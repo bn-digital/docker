@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
+ARG nodejs_version=18
 FROM summerwind/actions-runner-dind:latest
-ARG node_version=18
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -25,7 +25,7 @@ RUN apt-get update --fix-missing \
       lsb-release \
       make \
       wget \
- && curl -fsSL https://deb.nodesource.com/setup_${node_version}.x | bash - \
+ && curl -fsSL https://deb.nodesource.com/setup_${nodejs_version}.x | bash - \
  && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
  && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \
