@@ -57,9 +57,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Install skaffold
-        uses: hiberbee/github-action-skaffold@1.26.0
-        with:
-          skaffold-version: 2.3.1
+        uses: hiberbee/github-action-skaffold@1.27.0
 
       - name: Build images
         run: skaffold build
