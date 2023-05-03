@@ -23,6 +23,7 @@ env:
 jobs:
   docker:
     runs-on: self-hosted
+    environment: ${{ inputs.environment }}
     concurrency:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
@@ -58,11 +59,10 @@ jobs:
       - name: Build Docker images
         uses: hiberbee/github-action-skaffold@1.26.0
         env:
-          APP_NAME: ${{ github.event.repository.name }}
-          APP_ENV: ${{ inputs.environment }}
+          SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          SKAFFOLD_PUSH: true
+          SKAFFOLD_TAG: ${{ env.APP_VERSION }}
+          SKAFFOLD_SKIP_TESTS: false
         with:
           skaffold-version: 2.3.1
           command: build
-          skip-tests: false
-          repository: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
-          tag: ${{ env.APP_VERSION }}
