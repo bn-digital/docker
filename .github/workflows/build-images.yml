@@ -28,6 +28,7 @@ jobs:
       group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
       cancel-in-progress: true
     env:
+      BUILDKIT_PROGRESS: plain
       DOCKER_REPOSITORY: ${{ secrets.DOCKER_REGISTRY }}/${{ github.event.repository.name }}
     steps:
       - name: Checkout sources
