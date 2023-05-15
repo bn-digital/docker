@@ -35,10 +35,7 @@ RUN apt-get update --fix-missing \
  && apt-get clean
 WORKDIR /usr/local/src
 COPY app .
-ENV YARN_CACHE_FOLDER=/var/cache/yarn
 RUN npm i -g npm \
  && yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src
-ONBUILD WORKDIR /usr/local/src
-ONBUILD ENV YARN_CACHE_FOLDER=/var/cache/yarn
