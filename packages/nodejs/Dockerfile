@@ -14,8 +14,5 @@ ENV NODE_NO_WARNINGS="1" \
     PORT="5000" \
     NODE_ENV=production
 EXPOSE $PORT
-USER node
 WORKDIR /usr/local/src
-RUN npm install --global serve
-ONBUILD ENTRYPOINT ["serve"]
-ONBUILD CMD ["--single", "--no-etag", "."]
+USER node
