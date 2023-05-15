@@ -26,7 +26,9 @@ jobs:
       APP_NAME: ${{ github.event.repository.name }}
       APP_ENV: ${{ inputs.environment }}
       APP_VERSION: ${{ inputs.version }}
+      BUILDKIT_PROGRESS: plain
       DOCKER_REPOSITORY: ${{ env.DOCKER_REGISTRY }}/${{ github.event.repository.name }}
+      DOCKER_IMAGE: app
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -35,8 +37,6 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
-          endpoint: ${{ env.VAULT_ENDPOINT }}
-          token: ${{ env.GH_TOKEN }}
           template: packages/cms/.env.${{ env.APP_ENV }}
           target: packages/cms/.env
 
@@ -44,15 +44,13 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
-          endpoint: ${{ env.VAULT_ENDPOINT }}
-          token: ${{ env.GITHUB_TOKEN }}
           template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
-      - name: Set up Docker Buildx
+      - name: Set up Buildx
         uses: docker/setup-buildx-action@v2
 
       - name: Login Docker registry
@@ -67,4 +65,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_REPOSITORY }}/app:${{ env.APP_VERSION }}
+          tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }}
