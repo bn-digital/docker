@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
-FROM summerwind/actions-runner-dind:ubuntu-22.04
+FROM summerwind/actions-runner-dind:ubuntu-22.04 AS base
 
 FROM base AS build
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
