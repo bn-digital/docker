@@ -39,6 +39,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/cms/.env.${{ env.APP_ENV }}
           target: packages/cms/.env
 
@@ -46,6 +48,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
