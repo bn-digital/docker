@@ -28,10 +28,9 @@ RUN apt-get update --fix-missing \
       make \
       wget \
  && curl -fsSL https://deb.nodesource.com/setup_${nodejs_version}.x | bash - \
- && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg > /dev/null \
- && echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \
- && apt-get install --yes nodejs yarn \
+ && apt-get install --yes nodejs \
+ && npm install --global yarn npm \
  && apt-get clean \
  && apt-get autoremove \
  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/* /requirements.apt
