@@ -1,7 +1,10 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
 ARG os_version="bullseye-slim"
-FROM node:${nodejs_version}-${os_version}
+FROM node:${nodejs_version}-${os_version} AS base
+WORKDIR /usr/local/src
+
+FROM base AS build
 RUN apt-get update --fix-missing \
  && apt-get upgrade --yes \
  && apt-get dist-upgrade --yes \
@@ -33,9 +36,11 @@ RUN apt-get update --fix-missing \
       xvfb \
  && rm -rf /var/lib/apt/lists/* \
  && apt-get clean
-WORKDIR /usr/local/src
 COPY app .
 RUN npm i -g npm \
  && yarn \
  && yarn rebuild \
  && rm -rf /usr/local/src
+
+FROM base
+COPY --from=build / /

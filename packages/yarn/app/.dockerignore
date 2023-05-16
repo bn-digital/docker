@@ -2,12 +2,11 @@
 *
 
 # Allow files and directories
-!/.yarn
+!/.yarn/releases
+!/.yarn/plugins
 !/.yarnrc.yml
 !/package.json
 !/yarn.lock
-
 # Ignore unnecessary files inside allowed directories
 # This should go after the allowed directories
-
 /.yarn/install-state.gz

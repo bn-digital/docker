@@ -44,6 +44,22 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="ecosystem.json">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ecosystem.json" />
+              <option name="relativePathToSchema" value="https://json.schemastore.org/pm2-ecosystem.json" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="packages/nodejs/process.yml" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
       </map>
     </state>
   </component>

@@ -1,6 +1,8 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
-FROM summerwind/actions-runner-dind:latest
+FROM summerwind/actions-runner-dind:latest AS base
+
+FROM base AS build
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
       org.opencontainers.image.url="https://github.com/bn-digital/docker" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
@@ -33,4 +35,7 @@ RUN apt-get update --fix-missing \
  && apt-get clean \
  && apt-get autoremove \
  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/* /requirements.apt
+
+FROM base
 USER runner
+COPY --from=build --chown=runner / /

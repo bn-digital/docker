@@ -1,7 +1,7 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
 ARG os_version="bullseye-slim"
-FROM node:${nodejs_version}-${os_version}
+FROM node:${nodejs_version}-${os_version} AS build
 LABEL org.opencontainers.image.authors="BN Enginseers" \
       org.opencontainers.image.vendor="BN Digital" \
       org.opencontainers.image.title="NodeJS" \
@@ -15,8 +15,10 @@ ENV NODE_NO_WARNINGS="1" \
     NODE_ENV=production
 WORKDIR /usr/local/src
 RUN npm install --global pm2
-COPY . .
-EXPOSE $PORT
 USER node
+EXPOSE $PORT
+COPY --chown=node . .
 ENTRYPOINT ["pm2-runtime"]
-CMD ["ecosystem.config.js", "app.js"]
+CMD ["--json", "process.yml"]
+
+FROM build

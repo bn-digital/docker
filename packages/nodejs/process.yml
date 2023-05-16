@@ -1,0 +1,15 @@
+apps:
+  - cwd: /usr/local/src
+    script: node_modules/@strapi/strapi/bin/strapi.js
+    args:
+      - start
+    env:
+      STRAPI_DISABLE_UPDATE_NOTIFICATION: 'true'
+      STRAPI_HIDE_STARTUP_MESSAGE: 'true'
+      STRAPI_TELEMETRY_DISABLED: 'true'
+      BROWSER: 'false'
+    watch: false
+    instances: 1
+    exec_mode: cluster
+    name: app
+

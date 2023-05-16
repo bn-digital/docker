@@ -7,10 +7,6 @@ build:
       context: packages/yarn
       docker:
         pullParent: true
-    - image: openvpn
-      context: packages/openvpn
-      docker:
-        pullParent: true
     - image: nodejs
       context: packages/nodejs
       docker:
@@ -22,7 +18,9 @@ build:
   tagPolicy:
     sha256: { }
   local:
+    useDockerCLI: true
     useBuildkit: true
+    concurrency: 0
 test:
   - image: yarn
     structureTests:
