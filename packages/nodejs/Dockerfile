@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version=18
+ARG nodejs_version="18.16.0"
 ARG os_version="bullseye-slim"
 FROM node:${nodejs_version}-${os_version} AS build
 LABEL org.opencontainers.image.authors="BN Enginseers" \
@@ -10,15 +10,15 @@ LABEL org.opencontainers.image.authors="BN Enginseers" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
       org.opencontainers.image.licenses="MIT"
 ENV NODE_NO_WARNINGS="1" \
+    NODE_ENV=production
     HOST="0.0.0.0" \
     PORT="5000" \
-    NODE_ENV=production
 WORKDIR /usr/local/src
 RUN npm install --global pm2
 USER node
 EXPOSE $PORT
 COPY --chown=node . .
 ENTRYPOINT ["pm2-runtime"]
-CMD ["--json", "process.yml"]
+CMD ["ecosystem.config.yml"]
 
 FROM build

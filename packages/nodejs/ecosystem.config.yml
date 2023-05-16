@@ -1,8 +1,6 @@
 apps:
   - cwd: /usr/local/src
-    script: node_modules/@strapi/strapi/bin/strapi.js
-    args:
-      - start
+    script: bin/app.js
     env:
       STRAPI_DISABLE_UPDATE_NOTIFICATION: 'true'
       STRAPI_HIDE_STARTUP_MESSAGE: 'true'
@@ -10,6 +8,7 @@ apps:
       BROWSER: 'false'
     watch: false
     instances: 1
+    source_map_support: true
     exec_mode: cluster
     name: app
 
