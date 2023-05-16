@@ -27,7 +27,9 @@ jobs:
       APP_ENV: ${{ inputs.environment }}
       APP_VERSION: ${{ inputs.version }}
       BUILDKIT_PROGRESS: plain
-      DOCKER_REPOSITORY: ${{ env.DOCKER_REGISTRY }}/${{ github.event.repository.name }}
+      DOCKER_REPOSITORY: dcr.bndigital.dev/${{ github.event.repository.name }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       DOCKER_IMAGE: app
     steps:
       - name: Checkout sources
@@ -37,6 +39,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/cms/.env.${{ env.APP_ENV }}
           target: packages/cms/.env
 
@@ -44,6 +48,8 @@ jobs:
         uses: bn-digital/vault-env@latest
         continue-on-error: true
         with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
           template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
