@@ -10,9 +10,9 @@ LABEL org.opencontainers.image.authors="BN Enginseers" \
       org.opencontainers.image.source="https://github.com/bn-digital/docker" \
       org.opencontainers.image.licenses="MIT"
 ENV NODE_NO_WARNINGS="1" \
-    NODE_ENV=production
+    NODE_ENV=production \
     HOST="0.0.0.0" \
-    PORT="5000" \
+    PORT="5000"
 WORKDIR /usr/local/src
 RUN npm install --global pm2
 USER node
