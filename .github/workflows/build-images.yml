@@ -27,7 +27,7 @@ jobs:
       APP_ENV: ${{ inputs.environment }}
       APP_VERSION: ${{ inputs.version }}
       BUILDKIT_PROGRESS: plain
-      DOCKER_REPOSITORY: ${{ env.DOCKER_REGISTRY }}/${{ github.event.repository.name }}
+      DOCKER_REPOSITORY: dcr.bndigital.dev/${{ github.event.repository.name }}
       DOCKER_IMAGE: app
     steps:
       - name: Checkout sources
