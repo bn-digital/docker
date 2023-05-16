@@ -28,6 +28,8 @@ jobs:
       APP_VERSION: ${{ inputs.version }}
       BUILDKIT_PROGRESS: plain
       DOCKER_REPOSITORY: dcr.bndigital.dev/${{ github.event.repository.name }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       DOCKER_IMAGE: app
     steps:
       - name: Checkout sources
