@@ -13,6 +13,10 @@ ENV NODE_NO_WARNINGS="1" \
     HOST="0.0.0.0" \
     PORT="5000" \
     NODE_ENV=production
-EXPOSE $PORT
 WORKDIR /usr/local/src
+RUN npm install --global pm2
+COPY . .
+EXPOSE $PORT
 USER node
+ENTRYPOINT ["pm2-runtime"]
+CMD ["ecosystem.config.js", "app.js"]
