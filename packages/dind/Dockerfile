@@ -1,6 +1,6 @@
 # syntax docker/dockerfile:latest
 ARG nodejs_version=18
-FROM summerwind/actions-runner-dind:latest AS base
+FROM summerwind/actions-runner-dind:ubuntu-22.04
 
 FROM base AS build
 LABEL org.opencontainers.image.authors="BN Enginseers <dev@bndigital.co>" \
@@ -38,4 +38,4 @@ RUN apt-get update --fix-missing \
 
 FROM base
 USER runner
-COPY --from=build --chown=runner / /
+COPY --from=build / /
