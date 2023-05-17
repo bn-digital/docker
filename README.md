@@ -2,6 +2,8 @@
 
 ## Library
 
+### Image layout and rules
+
 ### Yarn
 
 [Dockerfile](packages/yarn/Dockerfile)
