@@ -1,18 +1,12 @@
 # BN Digital Container Registry
 
-## Contents
+## Library
 
-### Build
-
-#### NodeJS
+### Yarn
 
 [Dockerfile](packages/yarn/Dockerfile)
 
-This image used for assembling NodeJS-based applications. Includes Yarn 3 cached packages from `package.json` as [@bn-digital](https://github.com/bn-digital) technology stack foundation.
-
-### Runtime
-
-#### HTML
+### NodeJS
 
 [Dockerfile](packages/nodejs/Dockerfile)
 
@@ -20,18 +14,7 @@ This image used for assembling NodeJS-based applications. Includes Yarn 3 cached
 FROM nginx/unit:${unit_version}-minimal AS html
 ```
 
-#### NodeJS
+#### Docker in Docker
 
-[Dockerfile](packages/nodejs/Dockerfile)
+[Dockerfile](packages/dind/Dockerfile)
 
-```dockerfile
-FROM node:${nodejs_version}-bullseye-slim AS nodejs
-```
-
-#### PHP
-
-[Dockerfile](packages/nodejs/Dockerfile)
-
-```dockerfile
-FROM nginx/unit:${unit_version}-php${php_version} AS php
-```
