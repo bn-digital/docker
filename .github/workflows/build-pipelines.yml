@@ -1,0 +1,68 @@
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: false
+        description: Used by Skaffold and Helmfile profiles
+        type: string
+        default: staging
+      env-template:
+        required: false
+        description: Env template file
+        type: string
+        default: "staging"
+      version:
+        required: false
+        description: Env template file
+        type: string
+        default: latest
+env:
+  APP_NAME: ${{ github.event.repository.name }}
+  APP_ENV: ${{ inputs.environment }}
+  APP_VERSION: ${{ inputs.version }}
+jobs:
+  docker:
+    runs-on: self-hosted
+    environment: ${{ inputs.environment }}
+    concurrency:
+      group: ${{ github.event.repository.name }}-docker-${{ github.ref_name }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        
+      - name: Generate cms .env files
+        uses: bn-digital/vault-env@latest
+        continue-on-error: true
+        with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
+          template: packages/cms/.env.${{ env.APP_ENV }}
+          target: packages/cms/.env
+          
+      - name: Generate website .env files
+        uses: bn-digital/vault-env@latest
+        continue-on-error: true
+        with:
+          endpoint: ${{ secrets.VAULT_ENDPOINT }}
+          token: ${{ secrets.GH_TOKEN }}
+          template: packages/website/.env.${{ inputs.env-template }}
+          target: packages/website/.env.production
+          
+      - name: Login Docker registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Install skaffold
+        uses: hiberbee/github-action-skaffold@1.27.0
+
+      - name: Build images
+        run: skaffold build
+        env:
+          SKAFFOLD_DEFAULT_REPO: ${{ secrets.DOCKER_REGISTRY }}/${{ env.APP_NAME }}
+          SKAFFOLD_TAG: ${{ env.APP_VERSION }}
+          SKAFFOLD_PUSH: true
+          SKAFFOLD_SKIP_TESTS: false
