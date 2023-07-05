@@ -53,20 +53,6 @@ jobs:
           template: packages/website/.env.${{ inputs.env-template }}
           target: packages/website/.env.production
 
-      - name: Docker metadata
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: |
-            ${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}
-          labels: |
-            io.bndigital.dcr.environment=${{ env.APP_ENV }}
-            org.opencontainers.image.title=${{ env.APP_NAME }}
-            org.opencontainers.image.vendor=${{ github.repository_owner }}
-            org.opencontainers.image.source=https://github.com/${{ github.repository }}
-          tags: |
-            type=raw,value=${{ env.APP_VERSION }}
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -85,9 +71,4 @@ jobs:
         with:
           context: .
           push: true
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.meta.outputs.tags }}
-          build-args: |
-            BUILDTIME=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
-            VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
-            REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
+          tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }}
