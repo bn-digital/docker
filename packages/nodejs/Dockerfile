@@ -14,11 +14,11 @@ ENV NODE_NO_WARNINGS="1" \
     HOST="0.0.0.0" \
     PORT="5000"
 WORKDIR /usr/local/src
-RUN npm install --global pm2
+RUN npm install --global pm2 http-server
 USER node
 EXPOSE $PORT
 COPY --chown=node . .
-ENTRYPOINT ["pm2-runtime"]
-CMD ["ecosystem.config.yml"]
+ENTRYPOINT ["http-server"]
+CMD ["--proxy", "http://localhost:5000?"]
 
 FROM build

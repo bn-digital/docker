@@ -11,4 +11,3 @@ apps:
     source_map_support: true
     exec_mode: cluster
     name: app
-
