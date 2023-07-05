@@ -58,7 +58,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            registry.infrastructure.svc.cluster.local:5000/${{ env.DOCKER_IMAGE }}
             ${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}
           labels: |
             io.bndigital.dcr.environment=${{ env.APP_ENV }}
