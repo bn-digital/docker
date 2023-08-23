@@ -69,9 +69,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          provenance: false
-          cache-from: type=gha
-          cache-to: type=gha, mode=max
           context: .
           push: true
           tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:${{ env.APP_VERSION }}
