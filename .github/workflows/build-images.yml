@@ -50,7 +50,7 @@ jobs:
         with:
           endpoint: ${{ secrets.VAULT_ENDPOINT }}
           token: ${{ secrets.GH_TOKEN }}
-          template: packages/website/.env.${{ inputs.env-template }}
+          template: packages/website/.env.${{ env.APP_ENV }}
           target: packages/website/.env.production
 
       - name: Set up QEMU
