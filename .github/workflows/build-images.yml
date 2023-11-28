@@ -8,7 +8,7 @@ on:
         default: staging
       version:
         required: false
-        description: Env template file
+        description: Build version
         type: string
         default: latest
 jobs:
