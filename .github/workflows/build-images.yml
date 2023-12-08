@@ -6,6 +6,11 @@ on:
         description: Used by Skaffold and Helmfile profiles
         type: string
         default: staging
+      env-template:
+        required: false
+        description: Env template file
+        type: string
+        default: staging
       version:
         required: false
         description: Env template file
