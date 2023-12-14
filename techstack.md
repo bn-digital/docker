@@ -1,12 +1,14 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 bn-digital/docker is built on the following main stack:
+
 - [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
 - [React](https://reactjs.org/) – Javascript UI Libraries
 - [PostgreSQL](http://www.postgresql.org/) – Databases
 - [SQLite](http://www.sqlite.org/) – Databases
 - [Less](http://lesscss.org/) – CSS Pre-processors / Extensions
+- [Sass](http://sass-lang.com/) – CSS Pre-processors / Extensions
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [TypeScript](http://www.typescriptlang.org) – Languages
 - [Material-UI](https://github.com/mui/material-ui) – Front-End Frameworks
@@ -14,7 +16,6 @@ bn-digital/docker is built on the following main stack:
 - [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
 - [Moment.js](http://momentjs.com/) – Javascript Utilities & Libraries
 - [GraphQL](http://graphql.org/) – Query Languages
-- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - [nodemon](http://nodemon.io/) – node.js Application Monitoring
 - [Yarn](https://yarnpkg.com/) – Front End Package Manager
@@ -23,19 +24,24 @@ bn-digital/docker is built on the following main stack:
 - [Pulumi](https://www.pulumi.com/) – Infrastructure Build Tools
 - [date-fns](https://date-fns.org/) – Javascript Utilities & Libraries
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- [Vite](https://vitejs.dev/) – JS Build Tools / JS Task Runners
+- [Esbuild](https://esbuild.github.io/) – JS Build Tools / JS Task Runners
 - [Docker](https://www.docker.com/) – Virtual Machine Platforms & Containers
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 bn-digital/docker is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'/> [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/1028/ASOhU5xJ.png' alt='PostgreSQL'/> [PostgreSQL](http://www.postgresql.org/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/1071/sqlite.jpg' alt='SQLite'/> [SQLite](http://www.sqlite.org/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/1170/default_957cbc0168b4d37265e264469c888f776e57f42c.png' alt='Less'/> [Less](http://lesscss.org/) – CSS Pre-processors / Extensions
+- <img width='25' height='25' src='https://img.stackshare.io/service/1171/jCR2zNJV.png' alt='Sass'/> [Sass](http://sass-lang.com/) – CSS Pre-processors / Extensions
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1612/bynNY5dJ.jpg' alt='TypeScript'/> [TypeScript](http://www.typescriptlang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1904/default_44d81cb9fadbc3688b7e91a6d5217d0ea5358b57.png' alt='Material-UI'/> [Material-UI](https://github.com/mui/material-ui) – Front-End Frameworks
@@ -43,7 +49,6 @@ bn-digital/docker is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/3350/8261421.png' alt='React Router'/> [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
 - <img width='25' height='25' src='https://img.stackshare.io/service/3643/Xrtdc94q_400x400.png' alt='Moment.js'/> [Moment.js](http://momentjs.com/) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/3820/12972006.png' alt='GraphQL'/> [GraphQL](http://graphql.org/) – Query Languages
-- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/5577/preview.png' alt='nodemon'/> [nodemon](http://nodemon.io/) – node.js Application Monitoring
 - <img width='25' height='25' src='https://img.stackshare.io/service/5848/44mC-kJ3.jpg' alt='Yarn'/> [Yarn](https://yarnpkg.com/) – Front End Package Manager
@@ -52,17 +57,20 @@ bn-digital/docker is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/9053/pulumi_mark_flat_onPurple.png' alt='Pulumi'/> [Pulumi](https://www.pulumi.com/) – Infrastructure Build Tools
 - <img width='25' height='25' src='https://img.stackshare.io/service/10865/default_5551fb8853689f607a2bc0d5a09355d5a3d52bf0.png' alt='date-fns'/> [date-fns](https://date-fns.org/) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- <img width='25' height='25' src='https://img.stackshare.io/service/21547/default_1aeac791cde11ff66cc0b20dcc6144eeb185c905.png' alt='Vite'/> [Vite](https://vitejs.dev/) – JS Build Tools / JS Task Runners
+- <img width='25' height='25' src='https://img.stackshare.io/service/25166/default_2dcc9286a150737a14625d18f6f93747f72be430.png' alt='Esbuild'/> [Esbuild](https://esbuild.github.io/) – JS Build Tools / JS Task Runners
 - <img width='25' height='25' src='https://img.stackshare.io/service/586/n4u37v9t_400x400.png' alt='Docker'/> [Docker](https://www.docker.com/) – Virtual Machine Platforms & Containers
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [bn-digital/docker](https://github.com/bn-digital/docker)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|52<br/>Tools used|11/10/23 <br/>Report generated|
+|55<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -87,7 +95,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (6)
+## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (7)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/6112/12101536.png' alt='Ant Design'>
@@ -137,6 +145,14 @@ Full tech stack [here](/techstack.md)
   <sub>v5.3.4</sub>
 </td>
 
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/1171/jCR2zNJV.png' alt='Sass'>
+  <br>
+  <sub><a href="http://sass-lang.com/">Sass</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
 </tr>
 </table>
 
@@ -169,7 +185,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/devops.svg'/> DevOps (8)
+## <img src='https://img.stackshare.io/devops.svg'/> DevOps (10)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/586/n4u37v9t_400x400.png' alt='Docker'>
@@ -183,6 +199,14 @@ Full tech stack [here](/techstack.md)
   <img width='36' height='36' src='https://img.stackshare.io/service/8067/default_90dcb1286af7685c68df319c764b80704df1155b.png' alt='Dotenv'>
   <br>
   <sub><a href="https://github.com/motdotla/dotenv">Dotenv</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/25166/default_2dcc9286a150737a14625d18f6f93747f72be430.png' alt='Esbuild'>
+  <br>
+  <sub><a href="https://esbuild.github.io/">Esbuild</a></sub>
   <br>
   <sub></sub>
 </td>
@@ -212,6 +236,14 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/21547/default_1aeac791cde11ff66cc0b20dcc6144eeb185c905.png' alt='Vite'>
+  <br>
+  <sub><a href="https://vitejs.dev/">Vite</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/5848/44mC-kJ3.jpg' alt='Yarn'>
   <br>
   <sub><a href="https://yarnpkg.com/">Yarn</a></sub>
@@ -219,7 +251,9 @@ Full tech stack [here](/techstack.md)
   <sub></sub>
 </td>
 
-<td align='center'>
+</tr>
+<tr>
+  <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/5577/preview.png' alt='nodemon'>
   <br>
   <sub><a href="http://nodemon.io/">nodemon</a></sub>
@@ -238,7 +272,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (7)
+## Other (6)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/6429/alpine_linux.png' alt='Alpine Linux'>
@@ -262,14 +296,6 @@ Full tech stack [here](/techstack.md)
   <sub><a href="http://momentjs.com/">Moment.js</a></sub>
   <br>
   <sub>v2.29.4</sub>
-</td>
-
-<td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'>
-  <br>
-  <sub><a href="https://en.wikipedia.org/wiki/Shell_script">Shell</a></sub>
-  <br>
-  <sub></sub>
 </td>
 
 <td align='center'>
@@ -300,9 +326,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (26)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (27)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (26)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (27)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -311,6 +337,7 @@ Full tech stack [here](/techstack.md)
 |[@types/react](https://www.npmjs.com/@types/react)|v18.2.14|07/05/23|Vlad Volkov |MIT|N/A|
 |[@types/react-dom](https://www.npmjs.com/@types/react-dom)|v18.2.6|07/05/23|Vlad Volkov |MIT|N/A|
 |[@types/uuid](https://www.npmjs.com/@types/uuid)|v9.0.2|07/05/23|Vlad Volkov |MIT|N/A|
+|[antd](https://www.npmjs.com/antd)|v4.24.12|05/16/23|Vlad Volkov |MIT|N/A|
 |[commander](https://www.npmjs.com/commander)|v10.0.1|07/05/23|Vlad Volkov |MIT|N/A|
 |[core-js](https://www.npmjs.com/core-js)|v3.31.0|07/05/23|Vlad Volkov |MIT|N/A|
 |[cross-env](https://www.npmjs.com/cross-env)|v7.0.3|07/05/23|Vlad Volkov |MIT|N/A|
@@ -325,15 +352,15 @@ Full tech stack [here](/techstack.md)
 |[react-markdown](https://www.npmjs.com/react-markdown)|v8.0.7|07/05/23|Vlad Volkov |MIT|N/A|
 |[react-router](https://www.npmjs.com/react-router)|v5.3.4|07/05/23|Vlad Volkov |MIT|N/A|
 |[react-router-dom](https://www.npmjs.com/react-router-dom)|v5.3.4|07/05/23|Vlad Volkov |MIT|N/A|
-|[sass](https://www.npmjs.com/sass)|v1.63.6|07/05/23|Vlad Volkov |MIT|N/A|
-|[sharp](https://www.npmjs.com/sharp)|v0.32.0|05/16/23|Vlad Volkov |Apache-2.0|N/A|
+|[sharp](https://www.npmjs.com/sharp)|v0.32.0|05/16/23|Vlad Volkov |Apache-2.0|[](https://github.com/advisories/GHSA-54xq-cgqr-rpm3) (High)|
 |[sqlite3](https://www.npmjs.com/sqlite3)|v5.1.6|07/05/23|Vlad Volkov |BSD-3-Clause|N/A|
 |[ts-node](https://www.npmjs.com/ts-node)|v10.9.1|07/05/23|Vlad Volkov |MIT|N/A|
 |[ts-node-dev](https://www.npmjs.com/ts-node-dev)|v2.0.0|07/05/23|Vlad Volkov |MIT|N/A|
 |[tslib](https://www.npmjs.com/tslib)|v1.14.1|07/05/23|Vlad Volkov |0BSD|N/A|
 |[uuid](https://www.npmjs.com/uuid)|v8.0.0|07/05/23|Vlad Volkov |MIT|N/A|
+|[vite](https://www.npmjs.com/vite)|v4.3.9|07/05/23|Vlad Volkov |N/A|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
