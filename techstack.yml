@@ -1,11 +1,12 @@
 repo_name: bn-digital/docker
-report_id: 32ae558fb7268a423e19feb38e0c66a8
+report_id: 807412ead00c1529851dcc241ec25da7
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T10:16:56+00:00'
+timestamp: '2024-01-05T08:55:53+00:00'
 requested_by: ozhyhin-nikita
 provider: github
 branch: latest
-detected_tools_count: 55
+detected_tools_count: 56
 tools:
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/bn-digital/docker
   detection_source: Repo Metadata
 - name: TypeScript
   description: A superset of JavaScript that compiles to clean JavaScript output
@@ -69,6 +71,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Front-End Frameworks
   image_url: https://img.stackshare.io/service/1904/default_44d81cb9fadbc3688b7e91a6d5217d0ea5358b57.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/frontend/package.json
   detection_source: packages/yarn/app/packages/frontend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -81,6 +84,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/dind/Dockerfile
   detection_source: packages/dind/Dockerfile
   last_updated_by: Vlad Volkov
   last_updated_on: 2022-07-26 15:33:58.000000000 Z
@@ -121,6 +125,7 @@ tools:
   category: Languages & Frameworks
   sub_category: CSS Pre-processors / Extensions
   image_url: https://img.stackshare.io/service/1171/jCR2zNJV.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/frontend/package.json
   detection_source: packages/yarn/app/packages/frontend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -132,6 +137,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Query Languages
   image_url: https://img.stackshare.io/service/3820/12972006.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/package.json
   detection_source: packages/yarn/app/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-07-05 13:40:09.000000000 Z
@@ -143,6 +149,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/backend/package.json
   detection_source: packages/yarn/app/packages/backend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -155,6 +162,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1071/sqlite.jpg
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/backend/package.json
   detection_source: packages/yarn/app/packages/backend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -167,6 +175,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Virtual Machine Platforms & Containers
   image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/bn-digital/docker
   detection_source: Repo Metadata
 - name: Dotenv
   description: Loads environment variables from .env for Nodejs projects
@@ -177,6 +186,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Server Configuration and Automation
   image_url: https://img.stackshare.io/service/8067/default_90dcb1286af7685c68df319c764b80704df1155b.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/package.json
   detection_source: packages/yarn/app/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-07-05 13:40:09.000000000 Z
@@ -189,6 +199,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: JS Build Tools / JS Task Runners
   image_url: https://img.stackshare.io/service/25166/default_2dcc9286a150737a14625d18f6f93747f72be430.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/package.json
   detection_source: packages/yarn/app/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-07-05 13:40:09.000000000 Z
@@ -200,6 +211,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/bn-digital/docker
   detection_source: Repo Metadata
 - name: GitHub Actions
   description: Automate your workflow from idea to production
@@ -209,6 +221,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/.github/workflows/build-images.yml
   detection_source: ".github/workflows/build-images.yml"
   last_updated_by: Nikita Ozhyhin
   last_updated_on: 2023-12-08 14:21:22.000000000 Z
@@ -235,6 +248,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: JS Build Tools / JS Task Runners
   image_url: https://img.stackshare.io/service/21547/default_1aeac791cde11ff66cc0b20dcc6144eeb185c905.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/frontend/package.json
   detection_source: packages/yarn/app/packages/frontend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -246,6 +260,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/yarn.lock
   detection_source: packages/yarn/app/yarn.lock
 - name: nodemon
   description: A simple monitor script for use during development of a node.js app
@@ -269,6 +284,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/packages/frontend/package.json
   detection_source: packages/yarn/app/packages/frontend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
@@ -281,6 +297,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Operating Systems
   image_url: https://img.stackshare.io/service/6429/alpine_linux.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/openvpn/Dockerfile
   detection_source: packages/openvpn/Dockerfile
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-01 17:36:01.000000000 Z
@@ -335,6 +352,7 @@ tools:
   category: Libraries
   sub_category: Javascript Utilities & Libraries
   image_url: https://img.stackshare.io/service/10865/default_5551fb8853689f607a2bc0d5a09355d5a3d52bf0.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/package.json
   detection_source: packages/yarn/app/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-01 11:11:01.000000000 Z
@@ -343,6 +361,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/9527/5502029.jpeg
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/package.json
   detection_source: packages/yarn/app/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-01-30 00:19:49.000000000 Z
@@ -501,6 +520,20 @@ tools:
   detection_source: packages/yarn/app/packages/frontend/package.json
   last_updated_by: Vlad Volkov
   last_updated_on: 2023-05-16 15:23:09.000000000 Z
+- name: husky
+  description: Prevents bad commit or push
+  package_url: https://www.npmjs.com/husky
+  version: 8.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15831/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: https://github.com/bn-digital/docker/blob/latest/packages/yarn/app/yarn.lock
+  detection_source: packages/yarn/app/package.json
+  last_updated_by: Vlad Volkov
+  last_updated_on: 2023-01-30 00:19:49.000000000 Z
 - name: knex
   description: A batteries-included SQL query &amp; schema builder for Postgres
   package_url: https://www.npmjs.com/knex
