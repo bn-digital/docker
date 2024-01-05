@@ -70,7 +70,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [bn-digital/docker](https://github.com/bn-digital/docker)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|55<br/>Tools used|12/14/23 <br/>Report generated|
+|56<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -326,9 +326,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (27)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (28)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (27)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (28)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -343,6 +343,7 @@ Full tech stack [here](/techstack.md)
 |[cross-env](https://www.npmjs.com/cross-env)|v7.0.3|07/05/23|Vlad Volkov |MIT|N/A|
 |[gsap](https://www.npmjs.com/gsap)|v3.12.2|07/05/23|Vlad Volkov |Other|N/A|
 |[history](https://www.npmjs.com/history)|v4.10.1|05/16/23|Vlad Volkov |MIT|N/A|
+|[husky](https://www.npmjs.com/husky)|v8.0.3|01/30/23|Vlad Volkov |MIT|N/A|
 |[knex](https://www.npmjs.com/knex)|v2.4.2|01/30/23|Vlad Volkov |MIT|N/A|
 |[moment](https://www.npmjs.com/moment)|v2.29.4|07/16/22|Vlad Volkov |MIT|N/A|
 |[pg](https://www.npmjs.com/pg)|v8.11.1|05/16/23|Vlad Volkov |MIT|N/A|
