@@ -1,5 +1,5 @@
 # syntax docker/dockerfile:latest
-ARG nodejs_version="18.16.0"
+ARG nodejs_version="20.11.0"
 ARG os_version="bullseye-slim"
 FROM node:${nodejs_version}-${os_version} AS build
 LABEL org.opencontainers.image.authors="BN Enginseers" \
