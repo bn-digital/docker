@@ -39,6 +39,12 @@ on:
         description: Additional image tag to push
         type: string
         default: ""
+      docker-repository:
+        required: false
+        description: Docker registry repository URL
+        type: string
+        default: ""
+
 jobs:
   docker:
     runs-on: self-hosted
@@ -50,7 +56,7 @@ jobs:
       APP_ENV: ${{ inputs.environment }}
       APP_VERSION: ${{ inputs.version }}
       BUILDKIT_PROGRESS: plain
-      DOCKER_REPOSITORY: dcr.bndigital.dev/${{ github.event.repository.name }}
+      DOCKER_REPOSITORY: ${{ inputs.docker-repository || format('dcr.bndigital.dev/{0}', github.event.repository.name) }}
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
@@ -96,3 +102,5 @@ jobs:
           tags: ${{ steps.tags.outputs.tags }}
           file: ./${{ inputs.source }}/${{ inputs.dockerfile }}
           build-args: ${{ inputs.build-args }}
+          cache-from: type=registry,ref=${{ env.DOCKER_REPOSITORY }}/${{ inputs.image-name }}:cache
+          cache-to: type=registry,ref=${{ env.DOCKER_REPOSITORY }}/${{ inputs.image-name }}:cache,mode=max
